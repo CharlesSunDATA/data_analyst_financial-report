@@ -1,13 +1,16 @@
-name: Deploy GitHub Pages
+name: Daily Institutional AI Research
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    # GitHub cron uses UTC. The Adelaide-hour guard handles ACST/ACDT.
+    - cron: "30 10,11 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -25,16 +28,52 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Adelaide run window
+        id: gate
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" != "schedule" ]]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif python3 scripts/build_daily_brief.py --check-adelaide-hour; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate daily research snapshot
+        if: steps.gate.outputs.run == 'true' && github.event_name != 'push'
+        run: python3 scripts/build_daily_brief.py
+
+      - name: Commit immutable daily archive
+        if: steps.gate.outputs.run == 'true' && github.event_name != 'push'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html latest reports data/daily data/latest.json data/price_history.csv data/watchlist.csv data/sector_rotation.csv
+          git diff --cached --quiet || git commit -m "Daily AI infrastructure brief $(TZ=Australia/Adelaide date +%F)"
+          git push
 
       - name: Configure Pages
+        if: steps.gate.outputs.run == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload website
+        if: steps.gate.outputs.run == 'true'
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
 
       - name: Deploy website
+        if: steps.gate.outputs.run == 'true'
         id: deployment
         uses: actions/deploy-pages@v4

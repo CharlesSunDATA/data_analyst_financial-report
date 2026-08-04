@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0.0",
+  "events": [],
+  "instructions": "Only add future events with a direct official source_url. Nasdaq earnings are discovered automatically and marked for IR confirmation."
+}
