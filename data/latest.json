@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "metadata": {
     "report_date": "2026-08-04",
-    "generated_at": "2026-08-04T13:10:52.239959+09:30",
+    "generated_at": "2026-08-04T13:14:44.891388+09:30",
     "generated_timezone": "Australia/Adelaide",
     "market_data_as_of": "2026-08-04",
     "coverage": {
@@ -90,46 +90,6 @@
     ]
   },
   "market": {
-    "VIX": {
-      "key": "VIX",
-      "symbol": "^VIX",
-      "value": 15.86,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.813,
-        "5d": -15.051,
-        "20d": 1.863,
-        "60d": -7.143,
-        "ytd": 9.304
-      },
-      "ma20": 17.2415,
-      "ma50": 17.3592,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.539591+00:00"
-    },
-    "SOX": {
-      "key": "SOX",
-      "symbol": "^SOX",
-      "value": 11430.351562,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.054,
-        "5d": -1.078,
-        "20d": -11.394,
-        "60d": -0.37,
-        "ytd": 55.146
-      },
-      "ma20": 11975.425488,
-      "ma50": 12728.851602,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.547790+00:00"
-    },
     "SMH": {
       "key": "SMH",
       "symbol": "SMH",
@@ -1404,47 +1364,7 @@
         }
       ],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.568140+00:00"
-    },
-    "HYG": {
-      "key": "HYG",
-      "symbol": "HYG",
-      "value": 79.309998,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.214,
-        "5d": 0.05,
-        "20d": -0.701,
-        "60d": -0.093,
-        "ytd": 1.27
-      },
-      "ma20": 79.542,
-      "ma50": 79.49261,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.570541+00:00"
-    },
-    "LQD": {
-      "key": "LQD",
-      "symbol": "LQD",
-      "value": 106.110001,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.132,
-        "5d": -0.376,
-        "20d": -2.356,
-        "60d": -2.11,
-        "ytd": -1.491
-      },
-      "ma20": 106.951,
-      "ma50": 107.838734,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.576507+00:00"
+      "fetched_at": "2026-08-04T03:44:45.151688+00:00"
     },
     "SOXX": {
       "key": "SOXX",
@@ -1464,27 +1384,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.579243+00:00"
-    },
-    "QQQ": {
-      "key": "QQQ",
-      "symbol": "QQQ",
-      "value": 700.070007,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.756,
-        "5d": 2.632,
-        "20d": -3.147,
-        "60d": 0.729,
-        "ytd": 14.451
-      },
-      "ma20": 699.880997,
-      "ma50": 714.507231,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.581374+00:00"
+      "fetched_at": "2026-08-04T03:44:45.158597+00:00"
     },
     "IWM": {
       "key": "IWM",
@@ -1504,287 +1404,107 @@
       "trend": "上升",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.590340+00:00"
+      "fetched_at": "2026-08-04T03:44:45.162344+00:00"
     },
-    "VVIX": {
-      "key": "VVIX",
-      "symbol": "^VVIX",
-      "value": 90.809998,
+    "SOX": {
+      "key": "SOX",
+      "symbol": "^SOX",
+      "value": 11430.351562,
       "data_date": "2026-08-03",
       "currency": "USD",
       "returns": {
-        "1d": -0.906,
-        "5d": -10.009,
-        "20d": 4.271,
-        "60d": -3.084,
-        "ytd": 0.788
+        "1d": 1.054,
+        "5d": -1.078,
+        "20d": -11.394,
+        "60d": -0.37,
+        "ytd": 55.146
       },
-      "ma20": 96.0895,
-      "ma50": 93.4058,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.771653+00:00"
-    },
-    "USDJPY": {
-      "key": "USDJPY",
-      "symbol": "JPY=X",
-      "value": 157.584,
-      "data_date": "2026-08-04",
-      "currency": "JPY",
-      "returns": {
-        "1d": 0.001,
-        "5d": -3.778,
-        "20d": -2.779,
-        "60d": 0.225,
-        "ytd": 0.544
-      },
-      "ma20": 162.160001,
-      "ma50": 161.324761,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.792372+00:00"
-    },
-    "WTI": {
-      "key": "WTI",
-      "symbol": "CL=F",
-      "value": 80.940002,
-      "data_date": "2026-08-04",
-      "currency": "USD",
-      "returns": {
-        "1d": -4.405,
-        "5d": -2.022,
-        "20d": 18.074,
-        "60d": -14.872,
-        "ytd": 41.207
-      },
-      "ma20": 80.8985,
-      "ma50": 81.8634,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.817412+00:00"
-    },
-    "GOLD": {
-      "key": "GOLD",
-      "symbol": "GC=F",
-      "value": 4113.0,
-      "data_date": "2026-08-04",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.578,
-        "5d": 0.945,
-        "20d": -1.013,
-        "60d": -12.151,
-        "ytd": -4.668
-      },
-      "ma20": 4065.075025,
-      "ma50": 4192.556011,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.819192+00:00"
-    },
-    "DXY": {
-      "key": "DXY",
-      "symbol": "DX-Y.NYB",
-      "value": 99.976997,
-      "data_date": "2026-08-04",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.177,
-        "5d": -1.51,
-        "20d": -0.866,
-        "60d": 1.997,
-        "ytd": 1.582
-      },
-      "ma20": 100.899351,
-      "ma50": 100.44194,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.847235+00:00"
-    },
-    "NVDA": {
-      "key": "NVDA",
-      "symbol": "NVDA",
-      "value": 206.639999,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.934,
-        "5d": 5.155,
-        "20d": 5.671,
-        "60d": -0.457,
-        "ytd": 9.554
-      },
-      "ma20": 203.850997,
-      "ma50": 205.792407,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.880698+00:00"
-    },
-    "AVGO": {
-      "key": "AVGO",
-      "symbol": "AVGO",
-      "value": 392.230011,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.758,
-        "5d": 2.351,
-        "20d": 4.902,
-        "60d": -7.66,
-        "ytd": 13.249
-      },
-      "ma20": 385.6465,
-      "ma50": 394.53529,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:52.888034+00:00"
-    },
-    "AMD": {
-      "key": "AMD",
-      "symbol": "AMD",
-      "value": 484.640015,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.783,
-        "5d": -2.083,
-        "20d": -12.211,
-        "60d": 15.01,
-        "ytd": 116.87
-      },
-      "ma20": 511.688503,
-      "ma50": 512.948801,
+      "ma20": 11975.425488,
+      "ma50": 12728.851602,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.015241+00:00"
+      "fetched_at": "2026-08-04T03:44:45.192953+00:00"
     },
-    "MRVL": {
-      "key": "MRVL",
-      "symbol": "MRVL",
-      "value": 193.774994,
+    "VIX": {
+      "key": "VIX",
+      "symbol": "^VIX",
+      "value": 15.86,
       "data_date": "2026-08-03",
       "currency": "USD",
       "returns": {
-        "1d": 3.314,
-        "5d": 2.434,
-        "20d": -22.244,
-        "60d": 12.589,
-        "ytd": 117.093
+        "1d": -0.813,
+        "5d": -15.051,
+        "20d": 1.863,
+        "60d": -7.143,
+        "ytd": 9.304
       },
-      "ma20": 203.682048,
-      "ma50": 239.551022,
+      "ma20": 17.2415,
+      "ma50": 17.3592,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.064394+00:00"
+      "fetched_at": "2026-08-04T03:44:45.198584+00:00"
     },
-    "ANET": {
-      "key": "ANET",
-      "symbol": "ANET",
-      "value": 184.889999,
+    "HYG": {
+      "key": "HYG",
+      "symbol": "HYG",
+      "value": 79.309998,
       "data_date": "2026-08-03",
       "currency": "USD",
       "returns": {
-        "1d": 2.517,
-        "5d": 8.275,
-        "20d": 6.7,
-        "60d": 25.724,
-        "ytd": 38.391
+        "1d": -0.214,
+        "5d": 0.05,
+        "20d": -0.701,
+        "60d": -0.093,
+        "ytd": 1.27
       },
-      "ma20": 174.803502,
-      "ma50": 167.4698,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.071130+00:00"
-    },
-    "TSM": {
-      "key": "TSM",
-      "symbol": "TSM",
-      "value": 406.109985,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.46,
-        "5d": 1.759,
-        "20d": -10.111,
-        "60d": -2.965,
-        "ytd": 27.721
-      },
-      "ma20": 412.851497,
-      "ma50": 425.146984,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.076075+00:00"
-    },
-    "MU": {
-      "key": "MU",
-      "symbol": "MU",
-      "value": 829.5,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.786,
-        "5d": -7.854,
-        "20d": -15.765,
-        "60d": 24.458,
-        "ytd": 163.134
-      },
-      "ma20": 903.925506,
-      "ma50": 966.705361,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.129096+00:00"
-    },
-    "VRT": {
-      "key": "VRT",
-      "symbol": "VRT",
-      "value": 263.049988,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 8.892,
-        "5d": -8.536,
-        "20d": -17.402,
-        "60d": -26.695,
-        "ytd": 49.859
-      },
-      "ma20": 288.395498,
-      "ma50": 304.669557,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.171310+00:00"
-    },
-    "LITE": {
-      "key": "LITE",
-      "symbol": "LITE",
-      "value": 779.890015,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 9.237,
-        "5d": 9.541,
-        "20d": 6.652,
-        "60d": -17.409,
-        "ytd": 101.986
-      },
-      "ma20": 747.526999,
-      "ma50": 824.384,
+      "ma20": 79.542,
+      "ma50": 79.49261,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.174172+00:00"
+      "fetched_at": "2026-08-04T03:44:45.221057+00:00"
+    },
+    "QQQ": {
+      "key": "QQQ",
+      "symbol": "QQQ",
+      "value": 700.070007,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.756,
+        "5d": 2.632,
+        "20d": -3.147,
+        "60d": 0.729,
+        "ytd": 14.451
+      },
+      "ma20": 699.880997,
+      "ma50": 714.507231,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.223805+00:00"
+    },
+    "LQD": {
+      "key": "LQD",
+      "symbol": "LQD",
+      "value": 106.110001,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": -0.132,
+        "5d": -0.376,
+        "20d": -2.356,
+        "60d": -2.11,
+        "ytd": -1.491
+      },
+      "ma20": 106.951,
+      "ma50": 107.838733,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.350094+00:00"
     },
     "MOVE": {
       "key": "MOVE",
@@ -1804,27 +1524,287 @@
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.213497+00:00"
+      "fetched_at": "2026-08-04T03:44:45.386314+00:00"
     },
-    "NET": {
-      "key": "NET",
-      "symbol": "NET",
-      "value": 282.73999,
+    "VVIX": {
+      "key": "VVIX",
+      "symbol": "^VVIX",
+      "value": 90.809998,
       "data_date": "2026-08-03",
       "currency": "USD",
       "returns": {
-        "1d": 1.348,
-        "5d": 6.449,
-        "20d": 14.215,
-        "60d": 13.737,
-        "ytd": 44.24
+        "1d": -0.906,
+        "5d": -10.009,
+        "20d": 4.271,
+        "60d": -3.084,
+        "ytd": 0.788
       },
-      "ma20": 272.2125,
-      "ma50": 250.6088,
+      "ma20": 96.0895,
+      "ma50": 93.4058,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.438380+00:00"
+    },
+    "WTI": {
+      "key": "WTI",
+      "symbol": "CL=F",
+      "value": 80.889999,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": -4.464,
+        "5d": -2.082,
+        "20d": 18.001,
+        "60d": -14.924,
+        "ytd": 41.12
+      },
+      "ma20": 80.896,
+      "ma50": 81.8624,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.453212+00:00"
+    },
+    "GOLD": {
+      "key": "GOLD",
+      "symbol": "GC=F",
+      "value": 4113.899902,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.6,
+        "5d": 0.967,
+        "20d": -0.992,
+        "60d": -12.132,
+        "ytd": -4.647
+      },
+      "ma20": 4065.12002,
+      "ma50": 4192.574009,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.455144+00:00"
+    },
+    "DXY": {
+      "key": "DXY",
+      "symbol": "DX-Y.NYB",
+      "value": 99.980003,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.18,
+        "5d": -1.507,
+        "20d": -0.863,
+        "60d": 2.0,
+        "ytd": 1.585
+      },
+      "ma20": 100.899501,
+      "ma50": 100.442,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.456929+00:00"
+    },
+    "USDJPY": {
+      "key": "USDJPY",
+      "symbol": "JPY=X",
+      "value": 157.626999,
+      "data_date": "2026-08-04",
+      "currency": "JPY",
+      "returns": {
+        "1d": 0.029,
+        "5d": -3.752,
+        "20d": -2.752,
+        "60d": 0.252,
+        "ytd": 0.572
+      },
+      "ma20": 162.162151,
+      "ma50": 161.325621,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.479329+00:00"
+    },
+    "NVDA": {
+      "key": "NVDA",
+      "symbol": "NVDA",
+      "value": 206.639999,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.934,
+        "5d": 5.155,
+        "20d": 5.671,
+        "60d": -0.457,
+        "ytd": 9.554
+      },
+      "ma20": 203.850997,
+      "ma50": 205.792407,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.523462+00:00"
+    },
+    "AVGO": {
+      "key": "AVGO",
+      "symbol": "AVGO",
+      "value": 392.230011,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.758,
+        "5d": 2.351,
+        "20d": 4.902,
+        "60d": -7.66,
+        "ytd": 13.249
+      },
+      "ma20": 385.6465,
+      "ma50": 394.53529,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.662118+00:00"
+    },
+    "AMD": {
+      "key": "AMD",
+      "symbol": "AMD",
+      "value": 484.640015,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.783,
+        "5d": -2.083,
+        "20d": -12.211,
+        "60d": 15.01,
+        "ytd": 116.87
+      },
+      "ma20": 511.688503,
+      "ma50": 512.948801,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.676521+00:00"
+    },
+    "ANET": {
+      "key": "ANET",
+      "symbol": "ANET",
+      "value": 184.889999,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.517,
+        "5d": 8.275,
+        "20d": 6.7,
+        "60d": 25.724,
+        "ytd": 38.391
+      },
+      "ma20": 174.803502,
+      "ma50": 167.4698,
       "trend": "上升",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.292368+00:00"
+      "fetched_at": "2026-08-04T03:44:45.688672+00:00"
+    },
+    "MRVL": {
+      "key": "MRVL",
+      "symbol": "MRVL",
+      "value": 193.774994,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 3.314,
+        "5d": 2.434,
+        "20d": -22.244,
+        "60d": 12.589,
+        "ytd": 117.093
+      },
+      "ma20": 203.682048,
+      "ma50": 239.551022,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.750205+00:00"
+    },
+    "LITE": {
+      "key": "LITE",
+      "symbol": "LITE",
+      "value": 779.890015,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 9.237,
+        "5d": 9.541,
+        "20d": 6.652,
+        "60d": -17.409,
+        "ytd": 101.986
+      },
+      "ma20": 747.526999,
+      "ma50": 824.384,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.752362+00:00"
+    },
+    "TSM": {
+      "key": "TSM",
+      "symbol": "TSM",
+      "value": 406.109985,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.46,
+        "5d": 1.759,
+        "20d": -10.111,
+        "60d": -2.965,
+        "ytd": 27.721
+      },
+      "ma20": 412.851497,
+      "ma50": 425.146984,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.756365+00:00"
+    },
+    "MU": {
+      "key": "MU",
+      "symbol": "MU",
+      "value": 829.5,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.786,
+        "5d": -7.854,
+        "20d": -15.765,
+        "60d": 24.458,
+        "ytd": 163.134
+      },
+      "ma20": 903.925506,
+      "ma50": 966.705361,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.760673+00:00"
+    },
+    "VRT": {
+      "key": "VRT",
+      "symbol": "VRT",
+      "value": 263.049988,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 8.892,
+        "5d": -8.536,
+        "20d": -17.402,
+        "60d": -26.695,
+        "ytd": 49.859
+      },
+      "ma20": 288.395498,
+      "ma50": 304.669557,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.774989+00:00"
     },
     "CIEN": {
       "key": "CIEN",
@@ -1844,27 +1824,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.298557+00:00"
-    },
-    "ORCL": {
-      "key": "ORCL",
-      "symbol": "ORCL",
-      "value": 141.850006,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 9.225,
-        "5d": 18.307,
-        "20d": -0.985,
-        "60d": -26.638,
-        "ytd": -26.821
-      },
-      "ma20": 128.712101,
-      "ma50": 163.573488,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.317421+00:00"
+      "fetched_at": "2026-08-04T03:44:45.885258+00:00"
     },
     "DDOG": {
       "key": "DDOG",
@@ -1884,7 +1844,27 @@
       "trend": "上升",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.351584+00:00"
+      "fetched_at": "2026-08-04T03:44:45.922641+00:00"
+    },
+    "ORCL": {
+      "key": "ORCL",
+      "symbol": "ORCL",
+      "value": 141.850006,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 9.225,
+        "5d": 18.307,
+        "20d": -0.985,
+        "60d": -26.638,
+        "ytd": -26.821
+      },
+      "ma20": 128.712101,
+      "ma50": 163.573488,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:45.996125+00:00"
     },
     "META": {
       "key": "META",
@@ -1904,47 +1884,7 @@
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.417684+00:00"
-    },
-    "SAP": {
-      "key": "SAP",
-      "symbol": "SAP",
-      "value": 189.649994,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 3.284,
-        "5d": 10.9,
-        "20d": 18.169,
-        "60d": 9.542,
-        "ytd": -18.56
-      },
-      "ma20": 164.301,
-      "ma50": 166.7408,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.425185+00:00"
-    },
-    "NFLX": {
-      "key": "NFLX",
-      "symbol": "NFLX",
-      "value": 73.330002,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.259,
-        "5d": 4.162,
-        "20d": -3.539,
-        "60d": -16.925,
-        "ytd": -19.409
-      },
-      "ma20": 72.167999,
-      "ma50": 76.815799,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.456645+00:00"
+      "fetched_at": "2026-08-04T03:44:46.038235+00:00"
     },
     "ETN": {
       "key": "ETN",
@@ -1964,27 +1904,47 @@
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.562553+00:00"
+      "fetched_at": "2026-08-04T03:44:46.051680+00:00"
     },
-    "VICR": {
-      "key": "VICR",
-      "symbol": "VICR",
-      "value": 213.539993,
+    "NFLX": {
+      "key": "NFLX",
+      "symbol": "NFLX",
+      "value": 73.330002,
       "data_date": "2026-08-03",
       "currency": "USD",
       "returns": {
-        "1d": 2.975,
-        "5d": 3.439,
-        "20d": -25.163,
-        "60d": -23.828,
-        "ytd": 82.731
+        "1d": 2.259,
+        "5d": 4.162,
+        "20d": -3.539,
+        "60d": -16.925,
+        "ytd": -19.409
       },
-      "ma20": 231.4605,
-      "ma50": 283.4674,
-      "trend": "下降",
+      "ma20": 72.167999,
+      "ma50": 76.815799,
+      "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.594275+00:00"
+      "fetched_at": "2026-08-04T03:44:46.068686+00:00"
+    },
+    "SAP": {
+      "key": "SAP",
+      "symbol": "SAP",
+      "value": 189.649994,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 3.284,
+        "5d": 10.9,
+        "20d": 18.169,
+        "60d": 9.542,
+        "ytd": -18.56
+      },
+      "ma20": 164.301,
+      "ma50": 166.7408,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:46.083217+00:00"
     },
     "POWI": {
       "key": "POWI",
@@ -2004,7 +1964,47 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.596260+00:00"
+      "fetched_at": "2026-08-04T03:44:46.131042+00:00"
+    },
+    "NET": {
+      "key": "NET",
+      "symbol": "NET",
+      "value": 282.73999,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.348,
+        "5d": 6.449,
+        "20d": 14.215,
+        "60d": 13.737,
+        "ytd": 44.24
+      },
+      "ma20": 272.2125,
+      "ma50": 250.6088,
+      "trend": "上升",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:46.135238+00:00"
+    },
+    "VICR": {
+      "key": "VICR",
+      "symbol": "VICR",
+      "value": 213.539993,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.975,
+        "5d": 3.439,
+        "20d": -25.163,
+        "60d": -23.828,
+        "ytd": 82.731
+      },
+      "ma20": 231.4605,
+      "ma50": 283.4674,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:46.214184+00:00"
     },
     "COHR": {
       "key": "COHR",
@@ -2024,7 +2024,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.613339+00:00"
+      "fetched_at": "2026-08-04T03:44:46.221356+00:00"
     },
     "WDC": {
       "key": "WDC",
@@ -2044,7 +2044,7 @@
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.646660+00:00"
+      "fetched_at": "2026-08-04T03:44:46.274848+00:00"
     },
     "STX": {
       "key": "STX",
@@ -2064,27 +2064,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.728827+00:00"
-    },
-    "AMAT": {
-      "key": "AMAT",
-      "symbol": "AMAT",
-      "value": 518.210022,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.076,
-        "5d": 0.255,
-        "20d": -12.581,
-        "60d": 21.052,
-        "ytd": 93.217
-      },
-      "ma20": 542.896999,
-      "ma50": 545.412199,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.741478+00:00"
+      "fetched_at": "2026-08-04T03:44:46.357153+00:00"
     },
     "LRCX": {
       "key": "LRCX",
@@ -2104,7 +2084,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.754179+00:00"
+      "fetched_at": "2026-08-04T03:44:46.359606+00:00"
     },
     "ASML": {
       "key": "ASML",
@@ -2124,27 +2104,7 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.846130+00:00"
-    },
-    "JCI": {
-      "key": "JCI",
-      "symbol": "JCI",
-      "value": 146.389999,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.184,
-        "5d": 2.092,
-        "20d": 2.571,
-        "60d": 2.553,
-        "ytd": 20.389
-      },
-      "ma20": 142.404499,
-      "ma50": 142.181668,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.878370+00:00"
+      "fetched_at": "2026-08-04T03:44:46.432452+00:00"
     },
     "KLAC": {
       "key": "KLAC",
@@ -2164,7 +2124,27 @@
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.885250+00:00"
+      "fetched_at": "2026-08-04T03:44:46.440956+00:00"
+    },
+    "JCI": {
+      "key": "JCI",
+      "symbol": "JCI",
+      "value": 146.389999,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": -0.184,
+        "5d": 2.092,
+        "20d": 2.571,
+        "60d": 2.553,
+        "ytd": 20.389
+      },
+      "ma20": 142.404499,
+      "ma50": 142.181668,
+      "trend": "上升",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:46.514643+00:00"
     },
     "NVT": {
       "key": "NVT",
@@ -2184,7 +2164,27 @@
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:40:53.889900+00:00"
+      "fetched_at": "2026-08-04T03:44:46.577036+00:00"
+    },
+    "AMAT": {
+      "key": "AMAT",
+      "symbol": "AMAT",
+      "value": 518.210022,
+      "data_date": "2026-08-03",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.076,
+        "5d": 0.255,
+        "20d": -12.581,
+        "60d": 21.052,
+        "ytd": 93.217
+      },
+      "ma20": 542.896999,
+      "ma50": 545.412199,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T03:44:46.630502+00:00"
     },
     "US10Y": {
       "key": "US10Y",
@@ -2204,7 +2204,7 @@
       "trend": "上升",
       "history": [],
       "source_id": "fred",
-      "fetched_at": "2026-08-04T03:40:54.101446+00:00"
+      "fetched_at": "2026-08-04T03:44:46.841115+00:00"
     }
   },
   "flows": {
@@ -2906,6 +2906,17 @@
       "note": "Confirm with company IR before trading."
     },
     {
+      "date": "2026-08-07",
+      "time": "See official release calendar",
+      "type": "NFP",
+      "title": "Employment Situation / Nonfarm Payrolls",
+      "importance": 5,
+      "status": "official_calendar",
+      "source_id": "fred",
+      "source_url": "https://www.bls.gov/ces/",
+      "note": "Date distributed by FRED from the underlying official agency; verify time at the direct official source."
+    },
+    {
       "date": "2026-08-11",
       "time": "time-after-hours",
       "type": "Earnings",
@@ -2916,6 +2927,28 @@
       "source_id": "nasdaq",
       "source_url": "https://www.nasdaq.com/market-activity/earnings",
       "note": "Confirm with company IR before trading."
+    },
+    {
+      "date": "2026-08-12",
+      "time": "See official release calendar",
+      "type": "CPI",
+      "title": "Consumer Price Index",
+      "importance": 5,
+      "status": "official_calendar",
+      "source_id": "fred",
+      "source_url": "https://www.bls.gov/cpi/",
+      "note": "Date distributed by FRED from the underlying official agency; verify time at the direct official source."
+    },
+    {
+      "date": "2026-08-13",
+      "time": "See official release calendar",
+      "type": "PPI",
+      "title": "Producer Price Index",
+      "importance": 4,
+      "status": "official_calendar",
+      "source_id": "fred",
+      "source_url": "https://www.bls.gov/ppi/",
+      "note": "Date distributed by FRED from the underlying official agency; verify time at the direct official source."
     }
   ],
   "pm_actions": [
