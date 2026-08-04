@@ -28,8 +28,21 @@ class DailyBriefContractTest(unittest.TestCase):
                 self.assertEqual([], flow["rows"])
                 self.assertTrue(all(value is None for value in flow["windows"].values()))
         money_flow = self.data["institutional_money_flow"]
-        self.assertEqual("data_unavailable", money_flow["dark_pool"])
-        self.assertEqual("data_unavailable", money_flow["prime_broker_positioning"])
+        self.assertIn("daily_public_proxies", money_flow)
+        self.assertIn("official_delayed", money_flow)
+        self.assertIn("proprietary_unavailable", money_flow)
+        self.assertEqual(
+            "credentials_required",
+            money_flow["official_delayed"]["finra_ats"]["status"],
+        )
+        self.assertEqual(
+            "data_unavailable",
+            money_flow["proprietary_unavailable"]["prime_broker_positioning"]["status"],
+        )
+        self.assertIn(
+            money_flow["daily_public_proxies"]["put_call"]["status"],
+            {"available", "pending"},
+        )
 
     def test_dates_and_archives(self):
         report_date = self.data["metadata"]["report_date"]

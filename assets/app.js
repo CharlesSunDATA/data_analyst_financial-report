@@ -7,7 +7,8 @@
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
   const money=v=>v==null?"Pending":new Intl.NumberFormat("en-US",{notation:"compact",style:"currency",currency:"USD",maximumFractionDigits:1}).format(v);
   const shortDate=s=>s?new Intl.DateTimeFormat("zh-TW",{month:"short",day:"numeric"}).format(new Date(`${s}T12:00:00Z`)):"—";
-  const cardSource=(name,date,updated)=>`<div class="source"><span>來源 · ${esc(name)}</span><span>資料日 · ${esc(date||"Pending")} · 更新 · ${esc(updated||"Pending")}</span></div>`;
+  const updateTime=s=>{if(!s)return "Pending";const d=new Date(s);return Number.isNaN(d.getTime())?s:new Intl.DateTimeFormat("zh-TW",{timeZone:"Australia/Adelaide",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false,timeZoneName:"short"}).format(d);};
+  const cardSource=(name,date,updated)=>`<div class="source"><span>來源 · ${esc(name)}</span><span>資料日 · ${esc(date||"Pending")} · 更新 · ${esc(updateTime(updated))}</span></div>`;
 
   function pathFor(rows,width=720,height=250,pad=34){
     if(!rows||rows.length<2)return null;
@@ -69,7 +70,30 @@
 
   function divergence(d){return `${pageTitle("PAGE 06 · DIVERGENCE RADAR","Detect disagreement, never invent it","The system only flags price/flow divergence when both independently sourced series exist.")}<div class="grid">${d.divergences.map(x=>`<article class="card span-6"><div class="eyebrow">${esc(x.asset)}</div><div class="regime" style="font-size:32px">${esc(x.signal)}</div>${x.reason?`<div class="warning">${esc(x.reason)}</div>`:`<div class="fact">Price 5D ${pct(x.price_5d)} · Flow 5D ${money(x.flow_5d)}</div>`}</article>`).join("")}</div>`;}
 
-  function moneyFlow(d){const f=d.institutional_money_flow,rows=[['ETF Flow',f.etf_flow],['Dark Pool',f.dark_pool],['Block Trades',f.block_trades],['Options Flow',f.options_flow],['Prime Broker Positioning',f.prime_broker_positioning]];return `${pageTitle("PAGE 07 · INSTITUTIONAL MONEY FLOW","Evidence coverage dashboard","Unavailable proprietary datasets are shown as unavailable—not reverse-engineered from volume.")}<div class="grid">${rows.map(([name,status])=>`<article class="card span-4 kpi"><div class="eyebrow">${esc(name)}</div><div class="metric" style="font-size:25px">${status==='available'?'<span class="positive">Available</span>':'<span class="neutral">Data Unavailable</span>'}</div><div class="label">${status==='available'?"Source-backed observations loaded.":"No reliable licensed/public source configured."}</div></article>`).join("")}</div><div class="warning">${esc(f.note)}</div>`;}
+  function moneyFlow(d){
+    const f=d.institutional_money_flow,p=f.daily_public_proxies||{},delayed=f.official_delayed||{},missing=f.proprietary_unavailable||{};
+    const pc=p.put_call||{},credit=p.credit||{},vol=p.volatility||{},smh=p.smh_participation||{},margin=delayed.finra_margin||{},ats=delayed.finra_ats||{};
+    const status=(x,ok="Available")=>x?.status==="available"?`<span class="positive">${ok}</span>`:`<span class="neutral">Pending</span>`;
+    const source=(id,date,updated)=>cardSource(d.sources?.[id]?.name||id||"Pending",date,updated);
+    const unavailable=[
+      ["Signed Options Flow",missing.signed_options_flow],
+      ["Prime Broker Positioning",missing.prime_broker_positioning],
+      ["Real-time Block Trades",missing.real_time_block_trades]
+    ];
+    return `${pageTitle("PAGE 07 · POSITIONING & FLOW EVIDENCE","可用證據分層儀表板","先顯示每日公開代理，再顯示官方延遲資料；付費專有缺口保持透明，不用價格或成交量反推。")}
+      <div class="section-label">LAYER 01 · DAILY PUBLIC PROXIES</div><div class="grid">
+        <article class="card span-6 kpi"><div class="eyebrow">CBOE PUT / CALL</div><div class="metric" style="font-size:27px">${pc.status==="available"?fmt(pc.values?.total,2):status(pc)}</div><div class="label">Total ratio · ${esc(pc.posture||"等待資料")}</div><div class="method">Equity ${fmt(pc.values?.equity,2)} · Index ${fmt(pc.values?.index,2)} · ETP ${fmt(pc.values?.etp,2)}<br>${esc(pc.note||"")}</div>${source(pc.source_id,pc.data_date,pc.updated_at)}</article>
+        <article class="card span-6 kpi"><div class="eyebrow">CREDIT RISK APPETITE · HYG/LQD</div><div class="metric" style="font-size:27px">${credit.status==="available"?fmt(credit.ratio,4):status(credit)}</div><div class="label">${esc(credit.posture||"等待資料")}</div><div class="method">Relative 5D <span class="${signedClass(credit.relative_5d)}">${pct(credit.relative_5d)}</span> · 20D <span class="${signedClass(credit.relative_20d)}">${pct(credit.relative_20d)}</span><br>${esc(credit.note||"")}</div>${source(credit.source_id,credit.data_date,d.metadata.generated_at)}</article>
+        <article class="card span-6 kpi"><div class="eyebrow">VOLATILITY RISK · VIX / VVIX</div><div class="metric" style="font-size:27px">${vol.status==="available"?`${fmt(vol.vix,2)} / ${fmt(vol.vvix,2)}`:status(vol)}</div><div class="label">${esc(vol.posture||"等待資料")}</div><div class="method">VIX 5D <span class="${signedClass(vol.vix_5d)}">${pct(vol.vix_5d)}</span> · VVIX 5D <span class="${signedClass(vol.vvix_5d)}">${pct(vol.vvix_5d)}</span><br>${esc(vol.note||"")}</div>${source(vol.source_id,vol.data_date,d.metadata.generated_at)}</article>
+        <article class="card span-6 kpi"><div class="eyebrow">SMH PRICE / VOLUME PARTICIPATION</div><div class="metric" style="font-size:27px">${smh.status==="available"?`${fmt(smh.volume_vs_20d,2)}×`:status(smh)}</div><div class="label">Volume vs 20D average · ${esc(smh.posture||"等待資料")}</div><div class="method">SMH 1D <span class="${signedClass(smh.price_1d)}">${pct(smh.price_1d)}</span><br>${esc(smh.note||"")}</div>${source(smh.source_id,smh.data_date,d.metadata.generated_at)}</article>
+      </div>
+      <div class="section-label">LAYER 02 · OFFICIAL, BUT DELAYED</div><div class="grid">
+        <article class="card span-6 kpi"><div class="eyebrow">FINRA MARGIN DEBT · MONTHLY</div><div class="metric" style="font-size:27px">${margin.status==="available"?money((margin.latest?.debit_balance_millions||0)*1e6):status(margin)}</div><div class="label">${esc(margin.posture||"等待資料")} · MoM <span class="${signedClass(margin.change_mom_pct)}">${pct(margin.change_mom_pct)}</span></div><div class="method">${esc(margin.note||"")}</div>${source(margin.source_id,margin.data_date,margin.updated_at)}</article>
+        <article class="card span-6 kpi"><div class="eyebrow">FINRA ATS / DARK POOL · WEEKLY</div><div class="metric" style="font-size:25px"><span class="neutral">Connector Pending</span></div><div class="label">Official publication delay · ${esc(ats.delay||"2–4 weeks")}</div><div class="method">${esc(ats.note||"")}</div>${source(ats.source_id,ats.data_date,d.metadata.generated_at)}</article>
+      </div>
+      <div class="section-label">LAYER 03 · PROPRIETARY DATA GAPS</div><div class="grid">${unavailable.map(([name,x])=>`<article class="card span-4 kpi"><div class="eyebrow">${esc(name)}</div><div class="metric" style="font-size:23px"><span class="neutral">Data Unavailable</span></div><div class="label">${esc(x?.note||"No reliable licensed source configured.")}</div></article>`).join("")}</div>
+      <div class="warning"><span class="tag">EVIDENCE RULE</span>${esc(f.note)}</div>`;
+  }
 
   function catalysts(d){return `${pageTitle("PAGE 08 · CATALYST CALENDAR","Next 14 days","Earnings are discovered through Nasdaq and should be confirmed with company IR; official macro events retain their direct source URL.")}<article class="card"><div class="event-list">${d.catalysts.length?d.catalysts.map(e=>`<div class="event"><div class="event-date">${esc(e.date)}<br><span class="subtitle">${esc(e.time||"")}</span></div><div><strong>${esc(e.title)}</strong><div class="subtitle">${esc(e.type)} · ${esc(e.note||"")}</div></div><div class="importance">${"★".repeat(Number(e.importance||1))}</div></div>`).join(""):pending("No source-backed events were returned for the next 14 days.")}</div></article>`;}
 

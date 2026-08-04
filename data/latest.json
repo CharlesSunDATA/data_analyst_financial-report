@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "metadata": {
     "report_date": "2026-08-04",
-    "generated_at": "2026-08-04T13:14:44.891388+09:30",
+    "generated_at": "2026-08-04T21:25:17.786172+09:30",
     "generated_timezone": "Australia/Adelaide",
     "market_data_as_of": "2026-08-04",
     "coverage": {
@@ -90,21 +90,81 @@
     ]
   },
   "market": {
+    "SOX": {
+      "key": "SOX",
+      "symbol": "^SOX",
+      "value": 11311.080078,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.072,
+        "5d": -4.297,
+        "20d": -10.416,
+        "60d": 3.01,
+        "ytd": 53.527
+      },
+      "ma20": 12048.914893,
+      "ma50": 12736.510371,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.036182+00:00"
+    },
+    "SOXX": {
+      "key": "SOXX",
+      "symbol": "SOXX",
+      "value": 504.890015,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.071,
+        "5d": -4.197,
+        "20d": -10.847,
+        "60d": 4.64,
+        "ytd": 61.128
+      },
+      "ma20": 539.004504,
+      "ma50": 567.578417,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.059321+00:00"
+    },
+    "VIX": {
+      "key": "VIX",
+      "symbol": "^VIX",
+      "value": 15.64,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": -2.189,
+        "5d": -16.229,
+        "20d": 0.45,
+        "60d": -8.431,
+        "ytd": 7.788
+      },
+      "ma20": 17.2305,
+      "ma50": 17.3548,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.094399+00:00"
+    },
     "SMH": {
       "key": "SMH",
       "symbol": "SMH",
-      "value": 545.460022,
-      "data_date": "2026-08-03",
+      "value": 540.530029,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 0.912,
-        "5d": -0.563,
-        "20d": -9.737,
-        "60d": -0.782,
-        "ytd": 46.118
+        "1d": 0.302,
+        "5d": -3.681,
+        "20d": -8.739,
+        "60d": 3.413,
+        "ytd": 44.798
       },
-      "ma20": 568.690004,
-      "ma50": 595.785401,
+      "ma20": 571.632002,
+      "ma50": 596.1694,
       "trend": "下降",
       "history": [
         {
@@ -1355,836 +1415,771 @@
         {
           "date": "2026-07-31",
           "close": 540.530029,
-          "volume": 14637100
-        },
-        {
-          "date": "2026-08-03",
-          "close": 545.460022,
-          "volume": 7188954
+          "volume": 14673900
         }
       ],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.151688+00:00"
-    },
-    "SOXX": {
-      "key": "SOXX",
-      "symbol": "SOXX",
-      "value": 507.679993,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.553,
-        "5d": -1.656,
-        "20d": -12.696,
-        "60d": 0.207,
-        "ytd": 62.018
-      },
-      "ma20": 535.313004,
-      "ma50": 567.330756,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.158597+00:00"
-    },
-    "IWM": {
-      "key": "IWM",
-      "symbol": "IWM",
-      "value": 296.220001,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.724,
-        "5d": 1.13,
-        "20d": -0.897,
-        "60d": 3.53,
-        "ytd": 19.565
-      },
-      "ma20": 293.852502,
-      "ma50": 292.598381,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.162344+00:00"
-    },
-    "SOX": {
-      "key": "SOX",
-      "symbol": "^SOX",
-      "value": 11430.351562,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.054,
-        "5d": -1.078,
-        "20d": -11.394,
-        "60d": -0.37,
-        "ytd": 55.146
-      },
-      "ma20": 11975.425488,
-      "ma50": 12728.851602,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.192953+00:00"
-    },
-    "VIX": {
-      "key": "VIX",
-      "symbol": "^VIX",
-      "value": 15.86,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.813,
-        "5d": -15.051,
-        "20d": 1.863,
-        "60d": -7.143,
-        "ytd": 9.304
-      },
-      "ma20": 17.2415,
-      "ma50": 17.3592,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.198584+00:00"
-    },
-    "HYG": {
-      "key": "HYG",
-      "symbol": "HYG",
-      "value": 79.309998,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.214,
-        "5d": 0.05,
-        "20d": -0.701,
-        "60d": -0.093,
-        "ytd": 1.27
-      },
-      "ma20": 79.542,
-      "ma50": 79.49261,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.221057+00:00"
+      "fetched_at": "2026-08-04T11:55:18.107332+00:00"
     },
     "QQQ": {
       "key": "QQQ",
       "symbol": "QQQ",
-      "value": 700.070007,
-      "data_date": "2026-08-03",
+      "value": 687.98999,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 1.756,
-        "5d": 2.632,
-        "20d": -3.147,
-        "60d": 0.729,
-        "ytd": 14.451
+        "1d": 0.65,
+        "5d": 0.55,
+        "20d": -3.454,
+        "60d": 1.047,
+        "ytd": 12.476
       },
-      "ma20": 699.880997,
-      "ma50": 714.507231,
+      "ma20": 701.018497,
+      "ma50": 714.753175,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.117475+00:00"
+    },
+    "IWM": {
+      "key": "IWM",
+      "symbol": "IWM",
+      "value": 291.200012,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -0.475,
+        "5d": 0.01,
+        "20d": -2.144,
+        "60d": 3.303,
+        "ytd": 17.538
+      },
+      "ma20": 293.986502,
+      "ma50": 292.258102,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.223805+00:00"
+      "fetched_at": "2026-08-04T11:55:18.122628+00:00"
+    },
+    "HYG": {
+      "key": "HYG",
+      "symbol": "HYG",
+      "value": 79.096001,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.013,
+        "5d": 0.316,
+        "20d": -0.289,
+        "60d": 0.422,
+        "ytd": 1.487
+      },
+      "ma20": 79.185562,
+      "ma50": 79.104101,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.124110+00:00"
     },
     "LQD": {
       "key": "LQD",
       "symbol": "LQD",
-      "value": 106.110001,
-      "data_date": "2026-08-03",
+      "value": 105.792,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": -0.132,
-        "5d": -0.376,
-        "20d": -2.356,
-        "60d": -2.11,
-        "ytd": -1.491
+        "1d": -0.15,
+        "5d": 0.019,
+        "20d": -2.2,
+        "60d": -1.493,
+        "ytd": -1.361
       },
-      "ma20": 106.951,
-      "ma50": 107.838733,
+      "ma20": 106.617424,
+      "ma50": 107.394906,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.350094+00:00"
-    },
-    "MOVE": {
-      "key": "MOVE",
-      "symbol": "^MOVE",
-      "value": 80.483902,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 13.55,
-        "5d": 3.49,
-        "20d": 23.083,
-        "60d": 15.174,
-        "ytd": 29.063
-      },
-      "ma20": 70.173695,
-      "ma50": 72.163678,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.386314+00:00"
+      "fetched_at": "2026-08-04T11:55:18.126098+00:00"
     },
     "VVIX": {
       "key": "VVIX",
       "symbol": "^VVIX",
-      "value": 90.809998,
-      "data_date": "2026-08-03",
+      "value": 91.639999,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": -0.906,
-        "5d": -10.009,
-        "20d": 4.271,
-        "60d": -3.084,
-        "ytd": 0.788
+        "1d": -3.19,
+        "5d": -9.024,
+        "20d": 3.198,
+        "60d": -3.8,
+        "ytd": 1.709
       },
-      "ma20": 96.0895,
-      "ma50": 93.4058,
+      "ma20": 95.9035,
+      "ma50": 93.5186,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.438380+00:00"
-    },
-    "WTI": {
-      "key": "WTI",
-      "symbol": "CL=F",
-      "value": 80.889999,
-      "data_date": "2026-08-04",
-      "currency": "USD",
-      "returns": {
-        "1d": -4.464,
-        "5d": -2.082,
-        "20d": 18.001,
-        "60d": -14.924,
-        "ytd": 41.12
-      },
-      "ma20": 80.896,
-      "ma50": 81.8624,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.453212+00:00"
-    },
-    "GOLD": {
-      "key": "GOLD",
-      "symbol": "GC=F",
-      "value": 4113.899902,
-      "data_date": "2026-08-04",
-      "currency": "USD",
-      "returns": {
-        "1d": 1.6,
-        "5d": 0.967,
-        "20d": -0.992,
-        "60d": -12.132,
-        "ytd": -4.647
-      },
-      "ma20": 4065.12002,
-      "ma50": 4192.574009,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.455144+00:00"
+      "fetched_at": "2026-08-04T11:55:18.264983+00:00"
     },
     "DXY": {
       "key": "DXY",
       "symbol": "DX-Y.NYB",
-      "value": 99.980003,
+      "value": 99.906998,
       "data_date": "2026-08-04",
       "currency": "USD",
       "returns": {
-        "1d": 0.18,
-        "5d": -1.507,
-        "20d": -0.863,
-        "60d": 2.0,
-        "ytd": 1.585
+        "1d": 0.107,
+        "5d": -1.579,
+        "20d": -0.935,
+        "60d": 1.925,
+        "ytd": 1.511
       },
-      "ma20": 100.899501,
-      "ma50": 100.442,
+      "ma20": 100.895851,
+      "ma50": 100.44054,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.456929+00:00"
+      "fetched_at": "2026-08-04T11:55:18.317575+00:00"
     },
     "USDJPY": {
       "key": "USDJPY",
       "symbol": "JPY=X",
-      "value": 157.626999,
+      "value": 157.626007,
       "data_date": "2026-08-04",
       "currency": "JPY",
       "returns": {
-        "1d": 0.029,
+        "1d": 0.028,
         "5d": -3.752,
-        "20d": -2.752,
-        "60d": 0.252,
-        "ytd": 0.572
+        "20d": -2.753,
+        "60d": 0.251,
+        "ytd": 0.571
       },
-      "ma20": 162.162151,
-      "ma50": 161.325621,
+      "ma20": 162.162101,
+      "ma50": 161.325601,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.479329+00:00"
+      "fetched_at": "2026-08-04T11:55:18.334612+00:00"
+    },
+    "MOVE": {
+      "key": "MOVE",
+      "symbol": "^MOVE",
+      "value": 70.879997,
+      "data_date": "2026-07-17",
+      "currency": "USD",
+      "returns": {
+        "1d": 3.991,
+        "5d": 1.912,
+        "20d": 0.311,
+        "60d": 0.141,
+        "ytd": 13.663
+      },
+      "ma20": 69.419,
+      "ma50": 71.9666,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.343108+00:00"
     },
     "NVDA": {
       "key": "NVDA",
       "symbol": "NVDA",
-      "value": 206.639999,
-      "data_date": "2026-08-03",
+      "value": 200.75,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 2.934,
-        "5d": 5.155,
-        "20d": 5.671,
-        "60d": -0.457,
-        "ytd": 9.554
+        "1d": 2.928,
+        "5d": -2.944,
+        "20d": 3.039,
+        "60d": 2.282,
+        "ytd": 6.431
       },
-      "ma20": 203.850997,
-      "ma50": 205.792407,
-      "trend": "盤整",
+      "ma20": 203.296498,
+      "ma50": 206.123804,
+      "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.523462+00:00"
+      "fetched_at": "2026-08-04T11:55:18.359548+00:00"
     },
     "AVGO": {
       "key": "AVGO",
       "symbol": "AVGO",
-      "value": 392.230011,
-      "data_date": "2026-08-03",
+      "value": 389.279999,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 0.758,
-        "5d": 2.351,
-        "20d": 4.902,
-        "60d": -7.66,
-        "ytd": 13.249
+        "1d": 0.371,
+        "5d": 1.927,
+        "20d": 7.998,
+        "60d": -8.766,
+        "ytd": 12.397
       },
-      "ma20": 385.6465,
-      "ma50": 394.53529,
+      "ma20": 384.729999,
+      "ma50": 395.032687,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.662118+00:00"
+      "fetched_at": "2026-08-04T11:55:18.366617+00:00"
+    },
+    "WTI": {
+      "key": "WTI",
+      "symbol": "CL=F",
+      "value": 78.709999,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": -2.029,
+        "5d": -0.694,
+        "20d": 11.74,
+        "60d": -16.981,
+        "ytd": 37.317
+      },
+      "ma20": 81.282,
+      "ma50": 81.4986,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.398096+00:00"
+    },
+    "GOLD": {
+      "key": "GOLD",
+      "symbol": "GC=F",
+      "value": 4125.5,
+      "data_date": "2026-08-04",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.276,
+        "5d": 2.21,
+        "20d": -0.478,
+        "60d": -12.22,
+        "ytd": -4.378
+      },
+      "ma20": 4060.120032,
+      "ma50": 4182.684014,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.403032+00:00"
     },
     "AMD": {
       "key": "AMD",
       "symbol": "AMD",
-      "value": 484.640015,
-      "data_date": "2026-08-03",
+      "value": 476.149994,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 1.783,
-        "5d": -2.083,
-        "20d": -12.211,
-        "60d": 15.01,
-        "ytd": 116.87
+        "1d": -1.904,
+        "5d": -8.775,
+        "20d": -8.047,
+        "60d": 34.029,
+        "ytd": 113.071
       },
-      "ma20": 511.688503,
-      "ma50": 512.948801,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.676521+00:00"
-    },
-    "ANET": {
-      "key": "ANET",
-      "symbol": "ANET",
-      "value": 184.889999,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.517,
-        "5d": 8.275,
-        "20d": 6.7,
-        "60d": 25.724,
-        "ytd": 38.391
-      },
-      "ma20": 174.803502,
-      "ma50": 167.4698,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.688672+00:00"
-    },
-    "MRVL": {
-      "key": "MRVL",
-      "symbol": "MRVL",
-      "value": 193.774994,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 3.314,
-        "5d": 2.434,
-        "20d": -22.244,
-        "60d": 12.589,
-        "ytd": 117.093
-      },
-      "ma20": 203.682048,
-      "ma50": 239.551022,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.750205+00:00"
-    },
-    "LITE": {
-      "key": "LITE",
-      "symbol": "LITE",
-      "value": 779.890015,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 9.237,
-        "5d": 9.541,
-        "20d": 6.652,
-        "60d": -17.409,
-        "ytd": 101.986
-      },
-      "ma20": 747.526999,
-      "ma50": 824.384,
+      "ma20": 515.059001,
+      "ma50": 512.207601,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.752362+00:00"
-    },
-    "TSM": {
-      "key": "TSM",
-      "symbol": "TSM",
-      "value": 406.109985,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.46,
-        "5d": 1.759,
-        "20d": -10.111,
-        "60d": -2.965,
-        "ytd": 27.721
-      },
-      "ma20": 412.851497,
-      "ma50": 425.146984,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.756365+00:00"
+      "fetched_at": "2026-08-04T11:55:18.557855+00:00"
     },
     "MU": {
       "key": "MU",
       "symbol": "MU",
-      "value": 829.5,
-      "data_date": "2026-08-03",
+      "value": 823.030029,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 0.786,
-        "5d": -7.854,
-        "20d": -15.765,
-        "60d": 24.458,
-        "ytd": 163.134
+        "1d": -5.903,
+        "5d": -10.632,
+        "20d": -15.622,
+        "60d": 28.578,
+        "ytd": 161.081
       },
-      "ma20": 903.925506,
-      "ma50": 966.705361,
+      "ma20": 911.688006,
+      "ma50": 964.75291,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.760673+00:00"
+      "fetched_at": "2026-08-04T11:55:18.571142+00:00"
+    },
+    "ANET": {
+      "key": "ANET",
+      "symbol": "ANET",
+      "value": 180.350006,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 5.456,
+        "5d": 3.655,
+        "20d": 12.726,
+        "60d": 5.951,
+        "ytd": 34.993
+      },
+      "ma20": 174.223002,
+      "ma50": 166.5818,
+      "trend": "上升",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.584890+00:00"
+    },
+    "LITE": {
+      "key": "LITE",
+      "symbol": "LITE",
+      "value": 713.940002,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.986,
+        "5d": -6.429,
+        "20d": -1.974,
+        "60d": -28.215,
+        "ytd": 84.906
+      },
+      "ma20": 745.094998,
+      "ma50": 826.1476,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.621484+00:00"
+    },
+    "MRVL": {
+      "key": "MRVL",
+      "symbol": "MRVL",
+      "value": 187.559998,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.324,
+        "5d": -3.434,
+        "20d": -23.517,
+        "60d": 11.174,
+        "ytd": 110.13
+      },
+      "ma20": 206.453725,
+      "ma50": 239.410601,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.637182+00:00"
+    },
+    "TSM": {
+      "key": "TSM",
+      "symbol": "TSM",
+      "value": 404.25,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 0.233,
+        "5d": 0.208,
+        "20d": -6.889,
+        "60d": 2.735,
+        "ytd": 27.136
+      },
+      "ma20": 415.135498,
+      "ma50": 425.038417,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.647542+00:00"
     },
     "VRT": {
       "key": "VRT",
       "symbol": "VRT",
-      "value": 263.049988,
-      "data_date": "2026-08-03",
+      "value": 241.570007,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 8.892,
-        "5d": -8.536,
-        "20d": -17.402,
-        "60d": -26.695,
-        "ytd": 49.859
+        "1d": 6.185,
+        "5d": -16.803,
+        "20d": -19.619,
+        "60d": -29.148,
+        "ytd": 37.622
       },
-      "ma20": 288.395498,
-      "ma50": 304.669557,
+      "ma20": 291.166499,
+      "ma50": 305.720644,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.774989+00:00"
+      "fetched_at": "2026-08-04T11:55:18.661989+00:00"
     },
     "CIEN": {
       "key": "CIEN",
       "symbol": "CIEN",
-      "value": 390.76001,
-      "data_date": "2026-08-03",
+      "value": 377.049988,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 3.636,
-        "5d": 3.576,
-        "20d": -9.928,
-        "60d": -32.253,
-        "ytd": 58.807
+        "1d": 1.338,
+        "5d": -3.558,
+        "20d": -10.749,
+        "60d": -30.785,
+        "ytd": 53.235
       },
-      "ma20": 401.908499,
-      "ma50": 460.228998,
+      "ma20": 404.061998,
+      "ma50": 463.508998,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.885258+00:00"
-    },
-    "DDOG": {
-      "key": "DDOG",
-      "symbol": "DDOG",
-      "value": 273.600006,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.101,
-        "5d": 8.632,
-        "20d": 7.139,
-        "60d": 90.383,
-        "ytd": 104.53
-      },
-      "ma20": 259.648002,
-      "ma50": 246.1018,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.922641+00:00"
+      "fetched_at": "2026-08-04T11:55:18.685739+00:00"
     },
     "ORCL": {
       "key": "ORCL",
       "symbol": "ORCL",
-      "value": 141.850006,
-      "data_date": "2026-08-03",
+      "value": 129.869995,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 9.225,
-        "5d": 18.307,
-        "20d": -0.985,
-        "60d": -26.638,
-        "ytd": -26.821
+        "1d": 1.811,
+        "5d": 12.94,
+        "20d": -7.092,
+        "60d": -29.689,
+        "ytd": -33.002
       },
-      "ma20": 128.712101,
-      "ma50": 163.573488,
+      "ma20": 128.782681,
+      "ma50": 164.486642,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:45.996125+00:00"
-    },
-    "META": {
-      "key": "META",
-      "symbol": "META",
-      "value": 590.23999,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 6.023,
-        "5d": -0.611,
-        "20d": -1.674,
-        "60d": -3.605,
-        "ytd": -9.089
-      },
-      "ma20": 620.300494,
-      "ma50": 601.709064,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.038235+00:00"
-    },
-    "ETN": {
-      "key": "ETN",
-      "symbol": "ETN",
-      "value": 438.230011,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 5.547,
-        "5d": 9.931,
-        "20d": 6.001,
-        "60d": 4.284,
-        "ytd": 34.677
-      },
-      "ma20": 402.670502,
-      "ma50": 404.602601,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.051680+00:00"
-    },
-    "NFLX": {
-      "key": "NFLX",
-      "symbol": "NFLX",
-      "value": 73.330002,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 2.259,
-        "5d": 4.162,
-        "20d": -3.539,
-        "60d": -16.925,
-        "ytd": -19.409
-      },
-      "ma20": 72.167999,
-      "ma50": 76.815799,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.068686+00:00"
-    },
-    "SAP": {
-      "key": "SAP",
-      "symbol": "SAP",
-      "value": 189.649994,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 3.284,
-        "5d": 10.9,
-        "20d": 18.169,
-        "60d": 9.542,
-        "ytd": -18.56
-      },
-      "ma20": 164.301,
-      "ma50": 166.7408,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.083217+00:00"
-    },
-    "POWI": {
-      "key": "POWI",
-      "symbol": "POWI",
-      "value": 60.400002,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.511,
-        "5d": -4.747,
-        "20d": -17.328,
-        "60d": -22.601,
-        "ytd": 63.055
-      },
-      "ma20": 67.0615,
-      "ma50": 75.053676,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.131042+00:00"
+      "fetched_at": "2026-08-04T11:55:18.841084+00:00"
     },
     "NET": {
       "key": "NET",
       "symbol": "NET",
-      "value": 282.73999,
-      "data_date": "2026-08-03",
+      "value": 278.980011,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 1.348,
-        "5d": 6.449,
-        "20d": 14.215,
-        "60d": 13.737,
-        "ytd": 44.24
+        "1d": -1.556,
+        "5d": 6.42,
+        "20d": 15.086,
+        "60d": 14.135,
+        "ytd": 42.322
       },
-      "ma20": 272.2125,
-      "ma50": 250.6088,
+      "ma20": 270.453001,
+      "ma50": 249.1566,
       "trend": "上升",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.135238+00:00"
+      "fetched_at": "2026-08-04T11:55:18.843356+00:00"
+    },
+    "META": {
+      "key": "META",
+      "symbol": "META",
+      "value": 556.710022,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 3.28,
+        "5d": -6.465,
+        "20d": -4.493,
+        "60d": -7.89,
+        "ytd": -14.254
+      },
+      "ma20": 620.802994,
+      "ma50": 601.994259,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.852420+00:00"
+    },
+    "DDOG": {
+      "key": "DDOG",
+      "symbol": "DDOG",
+      "value": 267.970001,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -0.22,
+        "5d": 8.551,
+        "20d": 2.923,
+        "60d": 83.881,
+        "ytd": 100.321
+      },
+      "ma20": 258.736501,
+      "ma50": 244.8746,
+      "trend": "上升",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.861122+00:00"
+    },
+    "NFLX": {
+      "key": "NFLX",
+      "symbol": "NFLX",
+      "value": 71.709999,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -1.995,
+        "5d": 2.311,
+        "20d": -7.65,
+        "60d": -18.409,
+        "ytd": -21.189
+      },
+      "ma20": 72.302499,
+      "ma50": 77.110999,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.922153+00:00"
+    },
+    "POWI": {
+      "key": "POWI",
+      "symbol": "POWI",
+      "value": 60.709999,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -0.263,
+        "5d": -4.333,
+        "20d": -16.824,
+        "60d": -21.043,
+        "ytd": 63.891
+      },
+      "ma20": 67.694499,
+      "ma50": 75.224861,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.993754+00:00"
+    },
+    "ETN": {
+      "key": "ETN",
+      "symbol": "ETN",
+      "value": 415.200012,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 7.317,
+        "5d": 2.754,
+        "20d": 4.185,
+        "60d": 1.336,
+        "ytd": 27.599
+      },
+      "ma20": 401.430002,
+      "ma50": 403.431801,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:18.995965+00:00"
+    },
+    "SAP": {
+      "key": "SAP",
+      "symbol": "SAP",
+      "value": 183.619995,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.515,
+        "5d": 14.762,
+        "20d": 12.934,
+        "60d": 6.514,
+        "ytd": -21.15
+      },
+      "ma20": 162.843001,
+      "ma50": 166.5456,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.047272+00:00"
     },
     "VICR": {
       "key": "VICR",
       "symbol": "VICR",
-      "value": 213.539993,
-      "data_date": "2026-08-03",
+      "value": 207.369995,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 2.975,
-        "5d": 3.439,
-        "20d": -25.163,
-        "60d": -23.828,
-        "ytd": 82.731
+        "1d": 0.339,
+        "5d": -1.725,
+        "20d": -26.711,
+        "60d": -22.044,
+        "ytd": 77.452
       },
-      "ma20": 231.4605,
-      "ma50": 283.4674,
+      "ma20": 235.0505,
+      "ma50": 284.480601,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.214184+00:00"
+      "fetched_at": "2026-08-04T11:55:19.081228+00:00"
     },
     "COHR": {
       "key": "COHR",
       "symbol": "COHR",
-      "value": 288.140015,
-      "data_date": "2026-08-03",
+      "value": 262.890015,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 9.605,
-        "5d": 6.203,
-        "20d": -14.167,
-        "60d": -16.401,
-        "ytd": 48.274
+        "1d": 5.553,
+        "5d": -6.905,
+        "20d": -21.139,
+        "60d": -21.696,
+        "ytd": 35.28
       },
-      "ma20": 290.111002,
-      "ma50": 346.0116,
+      "ma20": 292.489001,
+      "ma50": 347.4188,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.221356+00:00"
-    },
-    "WDC": {
-      "key": "WDC",
-      "symbol": "WDC",
-      "value": 527.219971,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -3.234,
-        "5d": 5.884,
-        "20d": -8.7,
-        "60d": 9.15,
-        "ytd": 181.092
-      },
-      "ma20": 525.9465,
-      "ma50": 562.618818,
-      "trend": "盤整",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.274848+00:00"
+      "fetched_at": "2026-08-04T11:55:19.127418+00:00"
     },
     "STX": {
       "key": "STX",
       "symbol": "STX",
-      "value": 831.059998,
-      "data_date": "2026-08-03",
+      "value": 856.130005,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": -2.928,
-        "5d": 1.722,
-        "20d": -4.284,
-        "60d": 5.752,
-        "ytd": 189.735
+        "1d": 0.522,
+        "5d": 0.521,
+        "20d": 4.386,
+        "60d": 11.119,
+        "ytd": 198.475
       },
-      "ma20": 841.176498,
-      "ma50": 891.676442,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.357153+00:00"
-    },
-    "LRCX": {
-      "key": "LRCX",
-      "symbol": "LRCX",
-      "value": 294.609985,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.543,
-        "5d": 1.029,
-        "20d": -15.874,
-        "60d": -0.792,
-        "ytd": 59.5
-      },
-      "ma20": 314.022497,
-      "ma50": 337.889189,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.359606+00:00"
-    },
-    "ASML": {
-      "key": "ASML",
-      "symbol": "ASML",
-      "value": 1642.52002,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 0.83,
-        "5d": -0.641,
-        "20d": -9.886,
-        "60d": 6.467,
-        "ytd": 41.815
-      },
-      "ma20": 1727.348987,
-      "ma50": 1750.912524,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.432452+00:00"
-    },
-    "KLAC": {
-      "key": "KLAC",
-      "symbol": "KLAC",
-      "value": 182.75,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.038,
-        "5d": -10.135,
-        "20d": -21.671,
-        "60d": 0.746,
-        "ytd": 43.763
-      },
-      "ma20": 209.364001,
-      "ma50": 221.23928,
-      "trend": "下降",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.440956+00:00"
-    },
-    "JCI": {
-      "key": "JCI",
-      "symbol": "JCI",
-      "value": 146.389999,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": -0.184,
-        "5d": 2.092,
-        "20d": 2.571,
-        "60d": 2.553,
-        "ytd": 20.389
-      },
-      "ma20": 142.404499,
-      "ma50": 142.181668,
-      "trend": "上升",
-      "history": [],
-      "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.514643+00:00"
-    },
-    "NVT": {
-      "key": "NVT",
-      "symbol": "NVT",
-      "value": 159.410004,
-      "data_date": "2026-08-03",
-      "currency": "USD",
-      "returns": {
-        "1d": 3.627,
-        "5d": 6.779,
-        "20d": 1.741,
-        "60d": -7.461,
-        "ytd": 49.932
-      },
-      "ma20": 153.951117,
-      "ma50": 161.67569,
+      "ma20": 843.036499,
+      "ma50": 890.065939,
       "trend": "盤整",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.577036+00:00"
+      "fetched_at": "2026-08-04T11:55:19.171449+00:00"
     },
     "AMAT": {
       "key": "AMAT",
       "symbol": "AMAT",
-      "value": 518.210022,
-      "data_date": "2026-08-03",
+      "value": 507.670013,
+      "data_date": "2026-07-31",
       "currency": "USD",
       "returns": {
-        "1d": 2.076,
-        "5d": 0.255,
-        "20d": -12.581,
-        "60d": 21.052,
-        "ytd": 93.217
+        "1d": 1.176,
+        "5d": -5.33,
+        "20d": -15.815,
+        "60d": 23.728,
+        "ytd": 89.287
       },
-      "ma20": 542.896999,
-      "ma50": 545.412199,
+      "ma20": 546.625996,
+      "ma50": 543.574398,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.180960+00:00"
+    },
+    "LRCX": {
+      "key": "LRCX",
+      "symbol": "LRCX",
+      "value": 293.019989,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -1.579,
+        "5d": -3.994,
+        "20d": -16.616,
+        "60d": 6.318,
+        "ytd": 58.639
+      },
+      "ma20": 316.801999,
+      "ma50": 337.834678,
       "trend": "下降",
       "history": [],
       "source_id": "yahoo",
-      "fetched_at": "2026-08-04T03:44:46.630502+00:00"
+      "fetched_at": "2026-08-04T11:55:19.234864+00:00"
+    },
+    "KLAC": {
+      "key": "KLAC",
+      "symbol": "KLAC",
+      "value": 182.820007,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.381,
+        "5d": -13.158,
+        "20d": -22.386,
+        "60d": 5.634,
+        "ytd": 43.818
+      },
+      "ma20": 211.892001,
+      "ma50": 221.24322,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.301895+00:00"
+    },
+    "NVT": {
+      "key": "NVT",
+      "symbol": "NVT",
+      "value": 153.830002,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 6.236,
+        "5d": 1.344,
+        "20d": 1.238,
+        "60d": -9.076,
+        "ytd": 44.684
+      },
+      "ma20": 153.814741,
+      "ma50": 161.720408,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.315893+00:00"
+    },
+    "WDC": {
+      "key": "WDC",
+      "symbol": "WDC",
+      "value": 544.840027,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 2.214,
+        "5d": 4.817,
+        "20d": 1.083,
+        "60d": 17.135,
+        "ytd": 190.486
+      },
+      "ma20": 528.458502,
+      "ma50": 561.264422,
+      "trend": "盤整",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.335010+00:00"
+    },
+    "JCI": {
+      "key": "JCI",
+      "symbol": "JCI",
+      "value": 146.660004,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": 1.932,
+        "5d": 2.295,
+        "20d": 4.192,
+        "60d": 1.551,
+        "ytd": 20.611
+      },
+      "ma20": 142.220999,
+      "ma50": 142.001266,
+      "trend": "上升",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.454411+00:00"
+    },
+    "ASML": {
+      "key": "ASML",
+      "symbol": "ASML",
+      "value": 1629.0,
+      "data_date": "2026-07-31",
+      "currency": "USD",
+      "returns": {
+        "1d": -1.359,
+        "5d": -7.17,
+        "20d": -7.812,
+        "60d": 13.042,
+        "ytd": 40.647
+      },
+      "ma20": 1736.358618,
+      "ma50": 1749.02468,
+      "trend": "下降",
+      "history": [],
+      "source_id": "yahoo",
+      "fetched_at": "2026-08-04T11:55:19.474219+00:00"
     },
     "US10Y": {
       "key": "US10Y",
@@ -2204,7 +2199,7 @@
       "trend": "上升",
       "history": [],
       "source_id": "fred",
-      "fetched_at": "2026-08-04T03:44:46.841115+00:00"
+      "fetched_at": "2026-08-04T11:55:19.661220+00:00"
     }
   },
   "flows": {
@@ -2260,10 +2255,10 @@
         "ORCL",
         "SAP"
       ],
-      "return_1d": 3.99,
-      "return_5d": 11.072,
-      "return_20d": 9.635,
-      "relative_strength_20d": 12.782,
+      "return_1d": 0.387,
+      "return_5d": 10.668,
+      "return_20d": 5.963,
+      "relative_strength_20d": 9.417,
       "breadth_above_20d": 100.0,
       "score": 100,
       "stars": 5,
@@ -2283,85 +2278,17 @@
         "AMD",
         "AVGO"
       ],
-      "return_1d": 1.825,
-      "return_5d": 1.808,
-      "return_20d": -0.546,
-      "relative_strength_20d": 2.601,
-      "breadth_above_20d": 66.7,
-      "score": 64.8,
+      "return_1d": 0.465,
+      "return_5d": -3.264,
+      "return_20d": 0.997,
+      "relative_strength_20d": 4.451,
+      "breadth_above_20d": 33.3,
+      "score": 53.5,
       "stars": 3,
       "money_flow": "Pending — no validated segment-level institutional flow source.",
       "earnings_trend": "Pending — consensus revision feed not configured.",
       "risk": "Moderate",
       "rank": 2,
-      "rank_yesterday": null,
-      "rank_change_1d": null,
-      "rank_last_week": null,
-      "rank_change_1w": null
-    },
-    {
-      "name": "Optics",
-      "members": [
-        "LITE",
-        "CIEN",
-        "COHR"
-      ],
-      "return_1d": 7.493,
-      "return_5d": 6.44,
-      "return_20d": -5.814,
-      "relative_strength_20d": -2.667,
-      "breadth_above_20d": 33.3,
-      "score": 51.5,
-      "stars": 3,
-      "money_flow": "Pending — no validated segment-level institutional flow source.",
-      "earnings_trend": "Pending — consensus revision feed not configured.",
-      "risk": "Moderate",
-      "rank": 3,
-      "rank_yesterday": null,
-      "rank_change_1d": null,
-      "rank_last_week": null,
-      "rank_change_1w": null
-    },
-    {
-      "name": "Cooling",
-      "members": [
-        "VRT",
-        "NVT",
-        "JCI"
-      ],
-      "return_1d": 4.112,
-      "return_5d": 0.112,
-      "return_20d": -4.363,
-      "relative_strength_20d": -1.216,
-      "breadth_above_20d": 66.7,
-      "score": 49.9,
-      "stars": 2,
-      "money_flow": "Pending — no validated segment-level institutional flow source.",
-      "earnings_trend": "Pending — consensus revision feed not configured.",
-      "risk": "Moderate",
-      "rank": 4,
-      "rank_yesterday": null,
-      "rank_change_1d": null,
-      "rank_last_week": null,
-      "rank_change_1w": null
-    },
-    {
-      "name": "Networking",
-      "members": [
-        "ANET",
-        "MRVL"
-      ],
-      "return_1d": 2.915,
-      "return_5d": 5.354,
-      "return_20d": -7.772,
-      "relative_strength_20d": -4.625,
-      "breadth_above_20d": 50.0,
-      "score": 46.8,
-      "stars": 2,
-      "money_flow": "Pending — no validated segment-level institutional flow source.",
-      "earnings_trend": "Pending — consensus revision feed not configured.",
-      "risk": "Moderate",
-      "rank": 5,
       "rank_yesterday": null,
       "rank_change_1d": null,
       "rank_last_week": null,
@@ -2374,17 +2301,62 @@
         "WDC",
         "STX"
       ],
-      "return_1d": -1.792,
-      "return_5d": -0.083,
-      "return_20d": -9.583,
-      "relative_strength_20d": -6.436,
-      "breadth_above_20d": 33.3,
-      "score": 27.2,
-      "stars": 1,
+      "return_1d": -1.056,
+      "return_5d": -1.765,
+      "return_20d": -3.384,
+      "relative_strength_20d": 0.07,
+      "breadth_above_20d": 66.7,
+      "score": 50.0,
+      "stars": 2,
       "money_flow": "Pending — no validated segment-level institutional flow source.",
       "earnings_trend": "Pending — consensus revision feed not configured.",
-      "risk": "High",
-      "rank": 6,
+      "risk": "Moderate",
+      "rank": 3,
+      "rank_yesterday": null,
+      "rank_change_1d": null,
+      "rank_last_week": null,
+      "rank_change_1w": null
+    },
+    {
+      "name": "Networking",
+      "members": [
+        "ANET",
+        "MRVL"
+      ],
+      "return_1d": 3.89,
+      "return_5d": 0.11,
+      "return_20d": -5.395,
+      "relative_strength_20d": -1.941,
+      "breadth_above_20d": 50.0,
+      "score": 44.4,
+      "stars": 2,
+      "money_flow": "Pending — no validated segment-level institutional flow source.",
+      "earnings_trend": "Pending — consensus revision feed not configured.",
+      "risk": "Moderate",
+      "rank": 4,
+      "rank_yesterday": null,
+      "rank_change_1d": null,
+      "rank_last_week": null,
+      "rank_change_1w": null
+    },
+    {
+      "name": "Cooling",
+      "members": [
+        "VRT",
+        "NVT",
+        "JCI"
+      ],
+      "return_1d": 4.784,
+      "return_5d": -4.388,
+      "return_20d": -4.73,
+      "relative_strength_20d": -1.276,
+      "breadth_above_20d": 66.7,
+      "score": 40.7,
+      "stars": 2,
+      "money_flow": "Pending — no validated segment-level institutional flow source.",
+      "earnings_trend": "Pending — consensus revision feed not configured.",
+      "risk": "Moderate",
+      "rank": 5,
       "rank_yesterday": null,
       "rank_change_1d": null,
       "rank_last_week": null,
@@ -2398,12 +2370,35 @@
         "POWI",
         "VICR"
       ],
-      "return_1d": 4.226,
-      "return_5d": 0.022,
-      "return_20d": -13.473,
-      "relative_strength_20d": -10.326,
+      "return_1d": 3.394,
+      "return_5d": -5.027,
+      "return_20d": -14.742,
+      "relative_strength_20d": -11.288,
       "breadth_above_20d": 25.0,
-      "score": 20.0,
+      "score": 9.9,
+      "stars": 1,
+      "money_flow": "Pending — no validated segment-level institutional flow source.",
+      "earnings_trend": "Pending — consensus revision feed not configured.",
+      "risk": "High",
+      "rank": 6,
+      "rank_yesterday": null,
+      "rank_change_1d": null,
+      "rank_last_week": null,
+      "rank_change_1w": null
+    },
+    {
+      "name": "Optics",
+      "members": [
+        "LITE",
+        "CIEN",
+        "COHR"
+      ],
+      "return_1d": 3.292,
+      "return_5d": -5.631,
+      "return_20d": -11.287,
+      "relative_strength_20d": -7.833,
+      "breadth_above_20d": 0.0,
+      "score": 5.2,
       "stars": 1,
       "money_flow": "Pending — no validated segment-level institutional flow source.",
       "earnings_trend": "Pending — consensus revision feed not configured.",
@@ -2422,12 +2417,12 @@
         "KLAC",
         "ASML"
       ],
-      "return_1d": 0.853,
-      "return_5d": -2.373,
-      "return_20d": -15.003,
-      "relative_strength_20d": -11.856,
+      "return_1d": -0.095,
+      "return_5d": -7.413,
+      "return_20d": -15.657,
+      "relative_strength_20d": -12.203,
       "breadth_above_20d": 0.0,
-      "score": 10.3,
+      "score": 0.2,
       "stars": 1,
       "money_flow": "Pending — no validated segment-level institutional flow source.",
       "earnings_trend": "Pending — consensus revision feed not configured.",
@@ -2444,24 +2439,24 @@
       "ticker": "NVDA",
       "status": "available",
       "sector": "GPU",
-      "price": 206.639999,
-      "data_date": "2026-08-03",
-      "trend": "盤整",
+      "price": 200.75,
+      "data_date": "2026-07-31",
+      "trend": "下降",
       "returns": {
-        "1d": 2.934,
-        "5d": 5.155,
-        "20d": 5.671,
-        "60d": -0.457,
-        "ytd": 9.554
+        "1d": 2.928,
+        "5d": -2.944,
+        "20d": 3.039,
+        "60d": 2.282,
+        "ytd": 6.431
       },
-      "relative_strength_20d": 8.82,
-      "momentum": 5.413,
+      "relative_strength_20d": 6.49,
+      "momentum": 0.048,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 84.6,
-      "risk_score": 55.2,
-      "pm_rating": "Overweight",
+      "alpha_score": 69.5,
+      "risk_score": 50.5,
+      "pm_rating": "Neutral",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
     },
@@ -2469,23 +2464,23 @@
       "ticker": "AVGO",
       "status": "available",
       "sector": "GPU",
-      "price": 392.230011,
-      "data_date": "2026-08-03",
+      "price": 389.279999,
+      "data_date": "2026-07-31",
       "trend": "盤整",
       "returns": {
-        "1d": 0.758,
-        "5d": 2.351,
-        "20d": 4.902,
-        "60d": -7.66,
-        "ytd": 13.249
+        "1d": 0.371,
+        "5d": 1.927,
+        "20d": 7.998,
+        "60d": -8.766,
+        "ytd": 12.397
       },
-      "relative_strength_20d": 8.05,
-      "momentum": 3.627,
+      "relative_strength_20d": 11.45,
+      "momentum": 4.963,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 79.6,
-      "risk_score": 53.8,
+      "alpha_score": 91.8,
+      "risk_score": 59.4,
       "pm_rating": "Overweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2494,23 +2489,23 @@
       "ticker": "AMD",
       "status": "available",
       "sector": "GPU",
-      "price": 484.640015,
-      "data_date": "2026-08-03",
-      "trend": "下降",
+      "price": 476.149994,
+      "data_date": "2026-07-31",
+      "trend": "盤整",
       "returns": {
-        "1d": 1.783,
-        "5d": -2.083,
-        "20d": -12.211,
-        "60d": 15.01,
-        "ytd": 116.87
+        "1d": -1.904,
+        "5d": -8.775,
+        "20d": -8.047,
+        "60d": 34.029,
+        "ytd": 113.071
       },
-      "relative_strength_20d": -9.06,
-      "momentum": -7.147,
+      "relative_strength_20d": -4.59,
+      "momentum": -8.411,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 12.1,
-      "risk_score": 67.0,
+      "alpha_score": 23.6,
+      "risk_score": 59.5,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2519,23 +2514,23 @@
       "ticker": "MU",
       "status": "available",
       "sector": "Memory",
-      "price": 829.5,
-      "data_date": "2026-08-03",
+      "price": 823.030029,
+      "data_date": "2026-07-31",
       "trend": "下降",
       "returns": {
-        "1d": 0.786,
-        "5d": -7.854,
-        "20d": -15.765,
-        "60d": 24.458,
-        "ytd": 163.134
+        "1d": -5.903,
+        "5d": -10.632,
+        "20d": -15.622,
+        "60d": 28.578,
+        "ytd": 161.081
       },
-      "relative_strength_20d": -12.62,
-      "momentum": -11.809,
+      "relative_strength_20d": -12.17,
+      "momentum": -13.127,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
       "alpha_score": 0,
-      "risk_score": 73.4,
+      "risk_score": 73.1,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2544,23 +2539,23 @@
       "ticker": "MRVL",
       "status": "available",
       "sector": "Networking",
-      "price": 193.774994,
-      "data_date": "2026-08-03",
+      "price": 187.559998,
+      "data_date": "2026-07-31",
       "trend": "下降",
       "returns": {
-        "1d": 3.314,
-        "5d": 2.434,
-        "20d": -22.244,
-        "60d": 12.589,
-        "ytd": 117.093
+        "1d": 2.324,
+        "5d": -3.434,
+        "20d": -23.517,
+        "60d": 11.174,
+        "ytd": 110.13
       },
-      "relative_strength_20d": -19.1,
-      "momentum": -9.905,
+      "relative_strength_20d": -20.06,
+      "momentum": -13.476,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
       "alpha_score": 0,
-      "risk_score": 85.0,
+      "risk_score": 87.3,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2569,23 +2564,23 @@
       "ticker": "TSM",
       "status": "available",
       "sector": "Platform / Other",
-      "price": 406.109985,
-      "data_date": "2026-08-03",
+      "price": 404.25,
+      "data_date": "2026-07-31",
       "trend": "下降",
       "returns": {
-        "1d": 0.46,
-        "5d": 1.759,
-        "20d": -10.111,
-        "60d": -2.965,
-        "ytd": 27.721
+        "1d": 0.233,
+        "5d": 0.208,
+        "20d": -6.889,
+        "60d": 2.735,
+        "ytd": 27.136
       },
-      "relative_strength_20d": -6.96,
-      "momentum": -4.176,
+      "relative_strength_20d": -3.44,
+      "momentum": -3.341,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 22.9,
-      "risk_score": 63.2,
+      "alpha_score": 34.7,
+      "risk_score": 57.4,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2594,23 +2589,23 @@
       "ticker": "ANET",
       "status": "available",
       "sector": "Networking",
-      "price": 184.889999,
-      "data_date": "2026-08-03",
+      "price": 180.350006,
+      "data_date": "2026-07-31",
       "trend": "上升",
       "returns": {
-        "1d": 2.517,
-        "5d": 8.275,
-        "20d": 6.7,
-        "60d": 25.724,
-        "ytd": 38.391
+        "1d": 5.456,
+        "5d": 3.655,
+        "20d": 12.726,
+        "60d": 5.951,
+        "ytd": 34.993
       },
-      "relative_strength_20d": 9.85,
-      "momentum": 7.488,
+      "relative_strength_20d": 16.18,
+      "momentum": 8.191,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 90.8,
-      "risk_score": 57.1,
+      "alpha_score": 100,
+      "risk_score": 67.9,
       "pm_rating": "Overweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2619,23 +2614,23 @@
       "ticker": "VRT",
       "status": "available",
       "sector": "Power",
-      "price": 263.049988,
-      "data_date": "2026-08-03",
+      "price": 241.570007,
+      "data_date": "2026-07-31",
       "trend": "下降",
       "returns": {
-        "1d": 8.892,
-        "5d": -8.536,
-        "20d": -17.402,
-        "60d": -26.695,
-        "ytd": 49.859
+        "1d": 6.185,
+        "5d": -16.803,
+        "20d": -19.619,
+        "60d": -29.148,
+        "ytd": 37.622
       },
-      "relative_strength_20d": -14.26,
-      "momentum": -12.969,
+      "relative_strength_20d": -16.16,
+      "momentum": -18.211,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
       "alpha_score": 0,
-      "risk_score": 76.3,
+      "risk_score": 80.3,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2644,24 +2639,24 @@
       "ticker": "LITE",
       "status": "available",
       "sector": "Optics",
-      "price": 779.890015,
-      "data_date": "2026-08-03",
-      "trend": "盤整",
+      "price": 713.940002,
+      "data_date": "2026-07-31",
+      "trend": "下降",
       "returns": {
-        "1d": 9.237,
-        "5d": 9.541,
-        "20d": 6.652,
-        "60d": -17.409,
-        "ytd": 101.986
+        "1d": 2.986,
+        "5d": -6.429,
+        "20d": -1.974,
+        "60d": -28.215,
+        "ytd": 84.906
       },
-      "relative_strength_20d": 9.8,
-      "momentum": 8.097,
+      "relative_strength_20d": 1.48,
+      "momentum": -4.202,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 91.5,
-      "risk_score": 57.0,
-      "pm_rating": "Overweight",
+      "alpha_score": 48.1,
+      "risk_score": 48.6,
+      "pm_rating": "Neutral",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
     },
@@ -2669,23 +2664,23 @@
       "ticker": "CIEN",
       "status": "available",
       "sector": "Optics",
-      "price": 390.76001,
-      "data_date": "2026-08-03",
+      "price": 377.049988,
+      "data_date": "2026-07-31",
       "trend": "下降",
       "returns": {
-        "1d": 3.636,
-        "5d": 3.576,
-        "20d": -9.928,
-        "60d": -32.253,
-        "ytd": 58.807
+        "1d": 1.338,
+        "5d": -3.558,
+        "20d": -10.749,
+        "60d": -30.785,
+        "ytd": 53.235
       },
-      "relative_strength_20d": -6.78,
-      "momentum": -3.176,
+      "relative_strength_20d": -7.29,
+      "momentum": -7.154,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 24.9,
-      "risk_score": 62.9,
+      "alpha_score": 17.4,
+      "risk_score": 64.3,
       "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2694,23 +2689,23 @@
       "ticker": "NET",
       "status": "available",
       "sector": "Software",
-      "price": 282.73999,
-      "data_date": "2026-08-03",
+      "price": 278.980011,
+      "data_date": "2026-07-31",
       "trend": "上升",
       "returns": {
-        "1d": 1.348,
-        "5d": 6.449,
-        "20d": 14.215,
-        "60d": 13.737,
-        "ytd": 44.24
+        "1d": -1.556,
+        "5d": 6.42,
+        "20d": 15.086,
+        "60d": 14.135,
+        "ytd": 42.322
       },
-      "relative_strength_20d": 17.36,
-      "momentum": 10.332,
+      "relative_strength_20d": 18.54,
+      "momentum": 10.753,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
       "alpha_score": 100,
-      "risk_score": 70.6,
+      "risk_score": 72.2,
       "pm_rating": "Overweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2719,23 +2714,23 @@
       "ticker": "DDOG",
       "status": "available",
       "sector": "Software",
-      "price": 273.600006,
-      "data_date": "2026-08-03",
+      "price": 267.970001,
+      "data_date": "2026-07-31",
       "trend": "上升",
       "returns": {
-        "1d": 2.101,
-        "5d": 8.632,
-        "20d": 7.139,
-        "60d": 90.383,
-        "ytd": 104.53
+        "1d": -0.22,
+        "5d": 8.551,
+        "20d": 2.923,
+        "60d": 83.881,
+        "ytd": 100.321
       },
-      "relative_strength_20d": 10.29,
-      "momentum": 7.886,
+      "relative_strength_20d": 6.38,
+      "momentum": 5.737,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 92.7,
-      "risk_score": 57.9,
+      "alpha_score": 77.7,
+      "risk_score": 50.3,
       "pm_rating": "Overweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2744,23 +2739,23 @@
       "ticker": "ORCL",
       "status": "available",
       "sector": "Software",
-      "price": 141.850006,
-      "data_date": "2026-08-03",
+      "price": 129.869995,
+      "data_date": "2026-07-31",
       "trend": "盤整",
       "returns": {
-        "1d": 9.225,
-        "5d": 18.307,
-        "20d": -0.985,
-        "60d": -26.638,
-        "ytd": -26.821
+        "1d": 1.811,
+        "5d": 12.94,
+        "20d": -7.092,
+        "60d": -29.689,
+        "ytd": -33.002
       },
-      "relative_strength_20d": 2.16,
-      "momentum": 8.661,
+      "relative_strength_20d": -3.64,
+      "momentum": 2.924,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 69.5,
-      "risk_score": 46.8,
+      "alpha_score": 43.5,
+      "risk_score": 57.8,
       "pm_rating": "Neutral",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2769,23 +2764,23 @@
       "ticker": "META",
       "status": "available",
       "sector": "Platform / Other",
-      "price": 590.23999,
-      "data_date": "2026-08-03",
+      "price": 556.710022,
+      "data_date": "2026-07-31",
       "trend": "盤整",
       "returns": {
-        "1d": 6.023,
-        "5d": -0.611,
-        "20d": -1.674,
-        "60d": -3.605,
-        "ytd": -9.089
+        "1d": 3.28,
+        "5d": -6.465,
+        "20d": -4.493,
+        "60d": -7.89,
+        "ytd": -14.254
       },
-      "relative_strength_20d": 1.47,
-      "momentum": -1.143,
+      "relative_strength_20d": -1.04,
+      "momentum": -5.479,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 52.7,
-      "risk_score": 48.0,
+      "alpha_score": 38.7,
+      "risk_score": 53.1,
       "pm_rating": "Neutral",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2794,24 +2789,24 @@
       "ticker": "NFLX",
       "status": "available",
       "sector": "Platform / Other",
-      "price": 73.330002,
-      "data_date": "2026-08-03",
-      "trend": "盤整",
+      "price": 71.709999,
+      "data_date": "2026-07-31",
+      "trend": "下降",
       "returns": {
-        "1d": 2.259,
-        "5d": 4.162,
-        "20d": -3.539,
-        "60d": -16.925,
-        "ytd": -19.409
+        "1d": -1.995,
+        "5d": 2.311,
+        "20d": -7.65,
+        "60d": -18.409,
+        "ytd": -21.189
       },
-      "relative_strength_20d": -0.39,
-      "momentum": 0.311,
+      "relative_strength_20d": -4.2,
+      "momentum": -2.67,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
-      "alpha_score": 49.3,
-      "risk_score": 51.4,
-      "pm_rating": "Neutral",
+      "alpha_score": 33.4,
+      "risk_score": 58.8,
+      "pm_rating": "Underweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
     },
@@ -2819,23 +2814,23 @@
       "ticker": "SAP",
       "status": "available",
       "sector": "Software",
-      "price": 189.649994,
-      "data_date": "2026-08-03",
+      "price": 183.619995,
+      "data_date": "2026-07-31",
       "trend": "盤整",
       "returns": {
-        "1d": 3.284,
-        "5d": 10.9,
-        "20d": 18.169,
-        "60d": 9.542,
-        "ytd": -18.56
+        "1d": 1.515,
+        "5d": 14.762,
+        "20d": 12.934,
+        "60d": 6.514,
+        "ytd": -21.15
       },
-      "relative_strength_20d": 21.32,
-      "momentum": 14.535,
+      "relative_strength_20d": 16.39,
+      "momentum": 13.848,
       "money_flow": "Pending",
       "catalyst": "See 14-day catalyst calendar",
       "valuation": "Pending — consensus valuation feed not configured.",
       "alpha_score": 100,
-      "risk_score": 77.7,
+      "risk_score": 68.3,
       "pm_rating": "Overweight",
       "score_coverage": 55,
       "score_note": "Price trend and relative strength only; institutional flow, estimate revisions and valuation are excluded until sourced."
@@ -2849,12 +2844,177 @@
     }
   ],
   "institutional_money_flow": {
-    "etf_flow": "pending",
-    "dark_pool": "data_unavailable",
-    "block_trades": "data_unavailable",
-    "options_flow": "data_unavailable",
-    "prime_broker_positioning": "data_unavailable",
-    "note": "Unavailable datasets are not proxied with price or volume."
+    "daily_public_proxies": {
+      "put_call": {
+        "status": "available",
+        "data_date": "2026-08-03",
+        "updated_at": "2026-08-04T11:55:21.084774+00:00",
+        "source_id": "cboe",
+        "values": {
+          "total": 0.8,
+          "index": 0.88,
+          "etp": 1.04,
+          "equity": 0.55,
+          "vix": 0.67
+        },
+        "posture": "Balanced",
+        "note": "Market-wide put/call ratio; not directional options-flow or premium attribution."
+      },
+      "credit": {
+        "status": "available",
+        "data_date": "2026-07-31",
+        "ratio": 0.74766,
+        "relative_5d": 0.297,
+        "relative_20d": 1.911,
+        "posture": "Risk appetite improving",
+        "source_id": "yahoo",
+        "note": "Liquid credit-risk proxy; not a direct institutional-flow measure."
+      },
+      "volatility": {
+        "status": "available",
+        "data_date": "2026-07-31",
+        "vix": 15.64,
+        "vvix": 91.639999,
+        "vix_5d": -16.229,
+        "vvix_5d": -9.024,
+        "posture": "Volatility easing",
+        "source_id": "yahoo",
+        "note": "Volatility-risk proxy; not a flow measure."
+      },
+      "smh_participation": {
+        "status": "available",
+        "data_date": "2026-07-31",
+        "volume_vs_20d": 1.11,
+        "price_1d": 0.302,
+        "posture": "Normal / light participation",
+        "source_id": "yahoo",
+        "note": "Price-volume participation only; explicitly not ETF or institutional flow."
+      }
+    },
+    "official_delayed": {
+      "finra_margin": {
+        "status": "available",
+        "data_date": "Jun-26",
+        "updated_at": "2026-08-04T11:55:20.424366+00:00",
+        "source_id": "finra_margin",
+        "latest": {
+          "month": "Jun-26",
+          "debit_balance_millions": 1502072,
+          "cash_credit_millions": 217441,
+          "margin_credit_millions": 223412
+        },
+        "change_mom_pct": 6.11,
+        "history": [
+          {
+            "month": "Jun-26",
+            "debit_balance_millions": 1502072,
+            "cash_credit_millions": 217441,
+            "margin_credit_millions": 223412
+          },
+          {
+            "month": "May-26",
+            "debit_balance_millions": 1415557,
+            "cash_credit_millions": 206600,
+            "margin_credit_millions": 217256
+          },
+          {
+            "month": "Apr-26",
+            "debit_balance_millions": 1304281,
+            "cash_credit_millions": 217836,
+            "margin_credit_millions": 215445
+          },
+          {
+            "month": "Mar-26",
+            "debit_balance_millions": 1220922,
+            "cash_credit_millions": 221860,
+            "margin_credit_millions": 205600
+          },
+          {
+            "month": "Feb-26",
+            "debit_balance_millions": 1253192,
+            "cash_credit_millions": 205060,
+            "margin_credit_millions": 200047
+          },
+          {
+            "month": "Jan-26",
+            "debit_balance_millions": 1279042,
+            "cash_credit_millions": 203700,
+            "margin_credit_millions": 196911
+          },
+          {
+            "month": "Dec-25",
+            "debit_balance_millions": 1225597,
+            "cash_credit_millions": 211720,
+            "margin_credit_millions": 199762
+          },
+          {
+            "month": "Nov-25",
+            "debit_balance_millions": 1214321,
+            "cash_credit_millions": 202131,
+            "margin_credit_millions": 194418
+          },
+          {
+            "month": "Oct-25",
+            "debit_balance_millions": 1183654,
+            "cash_credit_millions": 197923,
+            "margin_credit_millions": 195376
+          },
+          {
+            "month": "Sep-25",
+            "debit_balance_millions": 1126494,
+            "cash_credit_millions": 204106,
+            "margin_credit_millions": 194884
+          },
+          {
+            "month": "Aug-25",
+            "debit_balance_millions": 1059723,
+            "cash_credit_millions": 188221,
+            "margin_credit_millions": 181563
+          },
+          {
+            "month": "Jul-25",
+            "debit_balance_millions": 1022548,
+            "cash_credit_millions": 194712,
+            "margin_credit_millions": 186672
+          },
+          {
+            "month": "Jun-25",
+            "debit_balance_millions": 1007961,
+            "cash_credit_millions": 200573,
+            "margin_credit_millions": 185584
+          }
+        ],
+        "posture": "Leverage expanding",
+        "note": "Monthly aggregate customer margin balances; not prime-broker positioning and not real-time."
+      },
+      "finra_ats": {
+        "status": "credentials_required",
+        "data_date": null,
+        "delay": "2–4 weeks",
+        "source_id": "finra_ats",
+        "note": "Official weekly ATS/OTC transparency data. Automated production access requires a FINRA API credential; no value is inferred while it is absent."
+      }
+    },
+    "validated_etf_flow": {
+      "status": "pending",
+      "source": "No validated public/licensed feed configured",
+      "note": "Detailed SMH/SOXX status remains on Page 02."
+    },
+    "proprietary_unavailable": {
+      "signed_options_flow": {
+        "status": "data_unavailable",
+        "note": "Ticker-level signed premium and trade-side attribution require a reliable licensed feed."
+      },
+      "prime_broker_positioning": {
+        "status": "data_unavailable",
+        "note": "Prime-broker gross/net exposure and hedge-fund positioning are proprietary datasets."
+      },
+      "real_time_block_trades": {
+        "status": "data_unavailable",
+        "note": "No reliable real-time block-trade classification feed is configured."
+      }
+    },
+    "note": "Public market proxies are context, not institutional-flow measurements. Unavailable datasets are never reconstructed from price or volume."
   },
   "catalysts": [
     {
@@ -2955,49 +3115,49 @@
     {
       "segment": "Software",
       "rating": "Overweight",
-      "reason": "20D relative strength +12.8 pts vs QQQ; breadth 100.0%.",
+      "reason": "20D relative strength +9.4 pts vs QQQ; breadth 100.0%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
       "segment": "GPU",
       "rating": "Neutral",
-      "reason": "20D relative strength +2.6 pts vs QQQ; breadth 66.7%.",
+      "reason": "20D relative strength +4.5 pts vs QQQ; breadth 33.3%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
-      "segment": "Optics",
+      "segment": "Memory",
       "rating": "Neutral",
-      "reason": "20D relative strength -2.7 pts vs QQQ; breadth 33.3%.",
-      "approval_status": "Analytical posture — not an approved mandate rule"
-    },
-    {
-      "segment": "Cooling",
-      "rating": "Neutral",
-      "reason": "20D relative strength -1.2 pts vs QQQ; breadth 66.7%.",
+      "reason": "20D relative strength +0.1 pts vs QQQ; breadth 66.7%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
       "segment": "Networking",
       "rating": "Neutral",
-      "reason": "20D relative strength -4.6 pts vs QQQ; breadth 50.0%.",
+      "reason": "20D relative strength -1.9 pts vs QQQ; breadth 50.0%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
-      "segment": "Memory",
-      "rating": "Underweight",
-      "reason": "20D relative strength -6.4 pts vs QQQ; breadth 33.3%.",
+      "segment": "Cooling",
+      "rating": "Neutral",
+      "reason": "20D relative strength -1.3 pts vs QQQ; breadth 66.7%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
       "segment": "Power",
       "rating": "Underweight",
-      "reason": "20D relative strength -10.3 pts vs QQQ; breadth 25.0%.",
+      "reason": "20D relative strength -11.3 pts vs QQQ; breadth 25.0%.",
+      "approval_status": "Analytical posture — not an approved mandate rule"
+    },
+    {
+      "segment": "Optics",
+      "rating": "Underweight",
+      "reason": "20D relative strength -7.8 pts vs QQQ; breadth 0.0%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     },
     {
       "segment": "Equipment",
       "rating": "Underweight",
-      "reason": "20D relative strength -11.9 pts vs QQQ; breadth 0.0%.",
+      "reason": "20D relative strength -12.2 pts vs QQQ; breadth 0.0%.",
       "approval_status": "Analytical posture — not an approved mandate rule"
     }
   ],
@@ -3046,6 +3206,24 @@
       "url": "https://www.bls.gov/schedule/",
       "tier": "A",
       "use": "Fed/BLS/BEA and other official catalyst dates stored with source URL."
+    },
+    "cboe": {
+      "name": "Cboe U.S. Options Daily Market Statistics",
+      "url": "https://www.cboe.com/us/options/market_statistics/daily/",
+      "tier": "A",
+      "use": "Market-wide put/call ratios. This is an options-sentiment proxy, not signed ticker-level options flow."
+    },
+    "finra_margin": {
+      "name": "FINRA Margin Statistics",
+      "url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+      "tier": "A",
+      "use": "Monthly aggregate customer margin balances, generally published in the following month."
+    },
+    "finra_ats": {
+      "name": "FINRA OTC Transparency",
+      "url": "https://www.finra.org/filing-reporting/otc-transparency",
+      "tier": "A",
+      "use": "Official ATS/OTC weekly volume with a regulatory publication delay; API credential is required for automated production access."
     }
   }
 }
