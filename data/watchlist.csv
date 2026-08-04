@@ -1,0 +1,17 @@
+ticker,sector,price,data_date,trend,relative_strength_20d,alpha_score,risk_score,pm_rating,score_coverage
+NVDA,GPU,206.639999,2026-08-03,盤整,8.82,84.6,55.2,Overweight,55
+AVGO,GPU,392.230011,2026-08-03,盤整,8.05,79.6,53.8,Overweight,55
+AMD,GPU,484.640015,2026-08-03,下降,-9.06,12.1,67.0,Underweight,55
+MU,Memory,829.5,2026-08-03,下降,-12.62,0,73.4,Underweight,55
+MRVL,Networking,193.774994,2026-08-03,下降,-19.1,0,85.0,Underweight,55
+TSM,Platform / Other,406.109985,2026-08-03,下降,-6.96,22.9,63.2,Underweight,55
+ANET,Networking,184.889999,2026-08-03,上升,9.85,90.8,57.1,Overweight,55
+VRT,Power,263.049988,2026-08-03,下降,-14.26,0,76.3,Underweight,55
+LITE,Optics,779.890015,2026-08-03,盤整,9.8,91.5,57.0,Overweight,55
+CIEN,Optics,390.76001,2026-08-03,下降,-6.78,24.9,62.9,Underweight,55
+NET,Software,282.73999,2026-08-03,上升,17.36,100,70.6,Overweight,55
+DDOG,Software,273.600006,2026-08-03,上升,10.29,92.7,57.9,Overweight,55
+ORCL,Software,141.850006,2026-08-03,盤整,2.16,69.5,46.8,Neutral,55
+META,Platform / Other,590.23999,2026-08-03,盤整,1.47,52.7,48.0,Neutral,55
+NFLX,Platform / Other,73.330002,2026-08-03,盤整,-0.39,49.3,51.4,Neutral,55
+SAP,Software,189.649994,2026-08-03,盤整,21.32,100,77.7,Overweight,55
