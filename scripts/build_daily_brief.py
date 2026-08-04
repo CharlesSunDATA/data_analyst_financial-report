@@ -16,6 +16,7 @@ import os
 import statistics
 import sys
 import time
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -405,6 +406,56 @@ def load_manual_catalysts(start: date, days: int = 14) -> list[dict]:
     return result
 
 
+def fetch_fred_macro_calendar(start: date, days: int = 14) -> list[dict]:
+    """Read future key U.S. macro release dates from FRED's public calendar."""
+    end = start + timedelta(days=days)
+    releases = {
+        10: ("CPI", "Consumer Price Index", 5, "https://www.bls.gov/cpi/"),
+        46: ("PPI", "Producer Price Index", 4, "https://www.bls.gov/ppi/"),
+        50: ("NFP", "Employment Situation / Nonfarm Payrolls", 5, "https://www.bls.gov/ces/"),
+        101: ("Fed", "FOMC Press Release", 5, "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"),
+    }
+
+    def fetch_release(rid: int, year: int) -> list[dict]:
+        kind, title, importance, official_url = releases[rid]
+        url = f"https://fred.stlouisfed.org/releases/calendar?rid={rid}&y={year}"
+        try:
+            req = Request(url, headers={"User-Agent": USER_AGENT})
+            with urlopen(req, timeout=12) as response:
+                html = response.read().decode("utf-8", errors="replace")
+        except (HTTPError, URLError, TimeoutError):
+            return []
+        found = []
+        for raw in re.findall(r'font-weight:\s*bold;">\s*([^<]+?)\s*</span>', html):
+            clean = " ".join(raw.split())
+            try:
+                event_date = datetime.strptime(clean, "%A %B %d, %Y").date()
+            except ValueError:
+                continue
+            if start <= event_date <= end:
+                found.append({
+                    "date": event_date.isoformat(),
+                    "time": "See official release calendar",
+                    "type": kind,
+                    "title": title,
+                    "importance": importance,
+                    "status": "official_calendar",
+                    "source_id": "fred",
+                    "source_url": official_url,
+                    "note": "Date distributed by FRED from the underlying official agency; verify time at the direct official source.",
+                })
+        return found
+
+    years = sorted({start.year, end.year})
+    events = []
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures = [pool.submit(fetch_release, rid, year) for rid in releases for year in years]
+        for future in as_completed(futures):
+            events.extend(future.result())
+    unique = {(item["date"], item["title"]): item for item in events}
+    return list(unique.values())
+
+
 def load_previous_snapshots() -> list[dict]:
     snapshots = []
     for path in sorted((ROOT / "data" / "daily").glob("*.json")):
@@ -512,7 +563,7 @@ def update_archive_index(report_date: str) -> None:
 def write_support_csvs(snapshot: dict, full_market: dict[str, dict]) -> None:
     market_path = ROOT / "data" / "price_history.csv"
     with market_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["ticker", "date", "close", "volume", "source"])
         for key, item in full_market.items():
             for row in item.get("history", []):
@@ -520,13 +571,13 @@ def write_support_csvs(snapshot: dict, full_market: dict[str, dict]) -> None:
     watch_path = ROOT / "data" / "watchlist.csv"
     with watch_path.open("w", newline="", encoding="utf-8") as handle:
         fields = ["ticker", "sector", "price", "data_date", "trend", "relative_strength_20d", "alpha_score", "risk_score", "pm_rating", "score_coverage"]
-        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(snapshot["watchlist"])
     sector_path = ROOT / "data" / "sector_rotation.csv"
     with sector_path.open("w", newline="", encoding="utf-8") as handle:
         fields = ["rank", "name", "return_1d", "return_5d", "return_20d", "relative_strength_20d", "breadth_above_20d", "score"]
-        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(snapshot["sectors"])
 
@@ -608,7 +659,7 @@ def build(report_date: date | None = None) -> dict:
     if top_sector:
         alpha_timeline.append({"date": report_date.isoformat(), "leader": top_sector["name"], "leader_score": top_sector["score"], "smh_flow_status": flows["SMH"]["status"], "smh_flow_5d": flows["SMH"]["windows"].get("5d")})
     validation = build_validation(previous, sectors, series)
-    catalysts = load_manual_catalysts(report_date) + fetch_nasdaq_earnings(report_date)
+    catalysts = load_manual_catalysts(report_date) + fetch_fred_macro_calendar(report_date) + fetch_nasdaq_earnings(report_date)
     catalysts.sort(key=lambda item: (item["date"], -int(item.get("importance", 1))))
 
     if top_sector and top_sector["score"] >= 65:
