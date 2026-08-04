@@ -89,6 +89,24 @@ SOURCE_CATALOG = {
         "tier": "A",
         "use": "Fed/BLS/BEA and other official catalyst dates stored with source URL.",
     },
+    "cboe": {
+        "name": "Cboe U.S. Options Daily Market Statistics",
+        "url": "https://www.cboe.com/us/options/market_statistics/daily/",
+        "tier": "A",
+        "use": "Market-wide put/call ratios. This is an options-sentiment proxy, not signed ticker-level options flow.",
+    },
+    "finra_margin": {
+        "name": "FINRA Margin Statistics",
+        "url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+        "tier": "A",
+        "use": "Monthly aggregate customer margin balances, generally published in the following month.",
+    },
+    "finra_ats": {
+        "name": "FINRA OTC Transparency",
+        "url": "https://www.finra.org/filing-reporting/otc-transparency",
+        "tier": "A",
+        "use": "Official ATS/OTC weekly volume with a regulatory publication delay; API credential is required for automated production access.",
+    },
 }
 
 
@@ -456,6 +474,104 @@ def fetch_fred_macro_calendar(start: date, days: int = 14) -> list[dict]:
     return list(unique.values())
 
 
+def fetch_cboe_put_call() -> dict:
+    url = "https://www.cboe.com/us/options/market_statistics/daily/"
+    try:
+        req = Request(url, headers={"User-Agent": USER_AGENT})
+        with urlopen(req, timeout=20) as response:
+            html = response.read().decode("utf-8", errors="replace")
+        selected = re.search(r'\\"selectedDate\\":\\"(\d{4}-\d{2}-\d{2})\\"', html)
+        values = {}
+        names = {
+            "total": "TOTAL PUT/CALL RATIO",
+            "index": "INDEX PUT/CALL RATIO",
+            "etp": "EXCHANGE TRADED PRODUCTS PUT/CALL RATIO",
+            "equity": "EQUITY PUT/CALL RATIO",
+            "vix": "CBOE VOLATILITY INDEX (VIX) PUT/CALL RATIO",
+        }
+        for key, name in names.items():
+            match = re.search(re.escape(name) + r'\\",\\"value\\":\\"([0-9.]+)', html)
+            values[key] = float(match.group(1)) if match else None
+        if not selected or values["total"] is None:
+            raise ValueError("Cboe ratio payload not found")
+        total = values["total"]
+        posture = "Defensive" if total >= 1.1 else "Complacent / call-heavy" if total <= 0.7 else "Balanced"
+        return {
+            "status": "available", "data_date": selected.group(1), "updated_at": datetime.now(timezone.utc).isoformat(),
+            "source_id": "cboe", "values": values, "posture": posture,
+            "note": "Market-wide put/call ratio; not directional options-flow or premium attribution.",
+        }
+    except Exception as exc:
+        return {"status": "pending", "data_date": None, "source_id": "cboe", "error": str(exc), "values": {}, "note": "Cboe daily statistics unavailable."}
+
+
+def fetch_finra_margin() -> dict:
+    url = "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics"
+    try:
+        req = Request(url, headers={"User-Agent": USER_AGENT})
+        with urlopen(req, timeout=20) as response:
+            html = response.read().decode("utf-8", errors="replace")
+        rows = re.findall(
+            r'<tr><td>([A-Z][a-z]{2}-\d{2})</td><td>([\d,]+)</td><td>([\d,]+)</td><td>([\d,]+)</td></tr>',
+            html,
+        )
+        if len(rows) < 2:
+            raise ValueError("FINRA margin table not found")
+        parsed = []
+        for month, debit, cash_credit, margin_credit in rows:
+            parsed.append({
+                "month": month,
+                "debit_balance_millions": int(debit.replace(",", "")),
+                "cash_credit_millions": int(cash_credit.replace(",", "")),
+                "margin_credit_millions": int(margin_credit.replace(",", "")),
+            })
+        current, previous = parsed[0], parsed[1]
+        mom = round((current["debit_balance_millions"] / previous["debit_balance_millions"] - 1) * 100, 2)
+        return {
+            "status": "available", "data_date": current["month"], "updated_at": datetime.now(timezone.utc).isoformat(),
+            "source_id": "finra_margin", "latest": current, "change_mom_pct": mom, "history": parsed,
+            "posture": "Leverage expanding" if mom > 0 else "Leverage contracting",
+            "note": "Monthly aggregate customer margin balances; not prime-broker positioning and not real-time.",
+        }
+    except Exception as exc:
+        return {"status": "pending", "data_date": None, "source_id": "finra_margin", "error": str(exc), "note": "FINRA margin statistics unavailable."}
+
+
+def build_market_proxies(series: dict[str, dict]) -> dict:
+    hyg, lqd = series.get("HYG"), series.get("LQD")
+    vix, vvix = series.get("VIX"), series.get("VVIX")
+    smh = series.get("SMH")
+    credit = {"status": "pending"}
+    if hyg and lqd:
+        credit = {
+            "status": "available", "data_date": min(hyg["data_date"], lqd["data_date"]),
+            "ratio": round(hyg["value"] / lqd["value"], 5),
+            "relative_5d": round((hyg["returns"]["5d"] or 0) - (lqd["returns"]["5d"] or 0), 3),
+            "relative_20d": round((hyg["returns"]["20d"] or 0) - (lqd["returns"]["20d"] or 0), 3),
+            "posture": "Risk appetite improving" if (hyg["returns"]["20d"] or 0) > (lqd["returns"]["20d"] or 0) else "Credit risk appetite weakening",
+            "source_id": "yahoo", "note": "Liquid credit-risk proxy; not a direct institutional-flow measure.",
+        }
+    volatility = {"status": "pending"}
+    if vix and vvix:
+        volatility = {
+            "status": "available", "data_date": min(vix["data_date"], vvix["data_date"]),
+            "vix": vix["value"], "vvix": vvix["value"], "vix_5d": vix["returns"]["5d"], "vvix_5d": vvix["returns"]["5d"],
+            "posture": "Volatility easing" if (vix["returns"]["5d"] or 0) < 0 else "Volatility pressure rising",
+            "source_id": "yahoo", "note": "Volatility-risk proxy; not a flow measure.",
+        }
+    smh_pressure = {"status": "pending"}
+    if smh and len(smh.get("history", [])) >= 20:
+        volumes = [row.get("volume") for row in smh["history"][-20:] if row.get("volume")]
+        if volumes and smh["history"][-1].get("volume"):
+            ratio = smh["history"][-1]["volume"] / statistics.fmean(volumes)
+            smh_pressure = {
+                "status": "available", "data_date": smh["data_date"], "volume_vs_20d": round(ratio, 2),
+                "price_1d": smh["returns"]["1d"], "posture": "Above-average participation" if ratio >= 1.2 else "Normal / light participation",
+                "source_id": "yahoo", "note": "Price-volume participation only; explicitly not ETF or institutional flow.",
+            }
+    return {"credit": credit, "volatility": volatility, "smh_participation": smh_pressure}
+
+
 def load_previous_snapshots() -> list[dict]:
     snapshots = []
     for path in sorted((ROOT / "data" / "daily").glob("*.json")):
@@ -627,6 +743,12 @@ def build(report_date: date | None = None) -> dict:
     regime = classify_regime(score, series)
     flows = {etf: load_flow_csv(etf) for etf in ("SMH", "SOXX")}
     flow_available = any(item["status"] == "available" for item in flows.values())
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        cboe_future = pool.submit(fetch_cboe_put_call)
+        margin_future = pool.submit(fetch_finra_margin)
+        cboe_put_call = cboe_future.result()
+        finra_margin = margin_future.result()
+    market_proxies = build_market_proxies(series)
     top_sector = sectors[0] if sectors else None
     previous = [
         item for item in load_previous_snapshots()
@@ -737,12 +859,42 @@ def build(report_date: date | None = None) -> dict:
         "watchlist": watchlist,
         "divergences": divergences,
         "institutional_money_flow": {
-            "etf_flow": "available" if flow_available else "pending",
-            "dark_pool": "data_unavailable",
-            "block_trades": "data_unavailable",
-            "options_flow": "data_unavailable",
-            "prime_broker_positioning": "data_unavailable",
-            "note": "Unavailable datasets are not proxied with price or volume.",
+            "daily_public_proxies": {
+                "put_call": cboe_put_call,
+                "credit": market_proxies["credit"],
+                "volatility": market_proxies["volatility"],
+                "smh_participation": market_proxies["smh_participation"],
+            },
+            "official_delayed": {
+                "finra_margin": finra_margin,
+                "finra_ats": {
+                    "status": "credentials_required",
+                    "data_date": None,
+                    "delay": "2–4 weeks",
+                    "source_id": "finra_ats",
+                    "note": "Official weekly ATS/OTC transparency data. Automated production access requires a FINRA API credential; no value is inferred while it is absent.",
+                },
+            },
+            "validated_etf_flow": {
+                "status": "available" if flow_available else "pending",
+                "source": "Configured creations/redemptions files" if flow_available else "No validated public/licensed feed configured",
+                "note": "Detailed SMH/SOXX status remains on Page 02.",
+            },
+            "proprietary_unavailable": {
+                "signed_options_flow": {
+                    "status": "data_unavailable",
+                    "note": "Ticker-level signed premium and trade-side attribution require a reliable licensed feed.",
+                },
+                "prime_broker_positioning": {
+                    "status": "data_unavailable",
+                    "note": "Prime-broker gross/net exposure and hedge-fund positioning are proprietary datasets.",
+                },
+                "real_time_block_trades": {
+                    "status": "data_unavailable",
+                    "note": "No reliable real-time block-trade classification feed is configured.",
+                },
+            },
+            "note": "Public market proxies are context, not institutional-flow measurements. Unavailable datasets are never reconstructed from price or volume.",
         },
         "catalysts": catalysts,
         "pm_actions": pm_actions,
