@@ -24,9 +24,14 @@ class DailyBriefContractTest(unittest.TestCase):
     def test_unavailable_flow_is_not_fabricated(self):
         for etf in ("SMH", "SOXX"):
             flow = self.data["flows"][etf]
+            self.assertIn("confirmed_events", flow)
+            self.assertIn("feed_setup", flow)
             if flow["status"] != "available":
                 self.assertEqual([], flow["rows"])
                 self.assertTrue(all(value is None for value in flow["windows"].values()))
+                self.assertEqual("subscription_required", flow["feed_setup"]["status"])
+            for event in flow["confirmed_events"]:
+                self.assertIn("Sparse", event["coverage"])
         money_flow = self.data["institutional_money_flow"]
         self.assertIn("daily_public_proxies", money_flow)
         self.assertIn("official_delayed", money_flow)
@@ -60,6 +65,14 @@ class DailyBriefContractTest(unittest.TestCase):
             if stock.get("status") == "available":
                 self.assertLess(stock["score_coverage"], 100)
                 self.assertIn("excluded", stock["score_note"])
+
+    def test_page_two_is_fund_flow_only(self):
+        app = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
+        self.assertIn("PAGE 02 · ETF FUND FLOW", app)
+        self.assertIn("VanEck Semiconductor ETF", app)
+        self.assertIn("iShares Semiconductor ETF · SOX代理", app)
+        self.assertNotIn("SMH Price ·", app)
+        self.assertNotIn("Price vs ETF Flow", app)
 
 
 if __name__ == "__main__":

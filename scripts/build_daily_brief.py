@@ -276,6 +276,32 @@ def flow_pending(etf: str, reason: str) -> dict:
     }
 
 
+def load_confirmed_flow_events() -> list[dict]:
+    """Load sparse, source-backed flow observations without treating gaps as zero."""
+    path = ROOT / "data" / "flows" / "confirmed_events.csv"
+    required = {"date", "ticker", "net_flow_usd", "source", "source_url", "coverage", "updated_at"}
+    if not path.exists():
+        return []
+    events = []
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames or not required.issubset(reader.fieldnames):
+            return []
+        for raw in reader:
+            if not raw.get("date") or not raw.get("ticker") or not raw.get("net_flow_usd"):
+                continue
+            events.append({
+                "date": raw["date"],
+                "ticker": raw["ticker"].upper(),
+                "net_flow_usd": float(raw["net_flow_usd"]),
+                "source": raw["source"],
+                "source_url": raw["source_url"],
+                "coverage": raw["coverage"],
+                "updated_at": raw["updated_at"],
+            })
+    return sorted(events, key=lambda item: (item["date"], item["ticker"]))[-100:]
+
+
 def safe_mean(values: list[float | None]) -> float | None:
     clean = [value for value in values if value is not None and math.isfinite(value)]
     return round(statistics.fmean(clean), 3) if clean else None
@@ -742,6 +768,16 @@ def build(report_date: date | None = None) -> dict:
     score, score_components = risk_on_score(series, watchlist)
     regime = classify_regime(score, series)
     flows = {etf: load_flow_csv(etf) for etf in ("SMH", "SOXX")}
+    confirmed_flow_events = load_confirmed_flow_events()
+    for etf, flow in flows.items():
+        flow["confirmed_events"] = [event for event in confirmed_flow_events if event["ticker"] == etf]
+        flow["feed_setup"] = {
+            "status": "ready" if flow["status"] == "available" else "subscription_required",
+            "provider": "ETF Global via AWS Data Exchange",
+            "source_url": "https://aws.amazon.com/marketplace/pp/prodview-zwx5mkzazfpsa",
+            "import_command": "python3 scripts/import_etf_global_flows.py --input /path/to/ETF_GLOBAL_FUND_FLOWS.csv",
+            "note": "Free dataset subscription requires an AWS account and acceptance of the provider terms. Sparse public events are evidence only and are excluded from rolling sums.",
+        }
     flow_available = any(item["status"] == "available" for item in flows.values())
     with ThreadPoolExecutor(max_workers=2) as pool:
         cboe_future = pool.submit(fetch_cboe_put_call)

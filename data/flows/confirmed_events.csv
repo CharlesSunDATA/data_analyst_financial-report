@@ -1,0 +1,5 @@
+date,ticker,net_flow_usd,source,source_url,coverage,updated_at
+2026-06-04,SMH,-1052360000,ETF.com,https://www.etf.com/sections/daily-etf-flows/daily-etf-flows-soxx-inflows-total-646m,Sparse top-flow article; omitted dates are unknown and not zero,2026-06-05T10:00:00Z
+2026-06-04,SOXX,646070000,ETF.com,https://www.etf.com/sections/daily-etf-flows/daily-etf-flows-soxx-inflows-total-646m,Sparse top-flow article; omitted dates are unknown and not zero,2026-06-05T10:00:00Z
+2026-07-08,SMH,552150000,ETF.com,https://www.etf.com/sections/daily-etf-flows/semiconductor-etfs-roar-back-soxx-pulls-54-billion-single-day,Sparse top-flow article; omitted dates are unknown and not zero,2026-07-09T10:00:00Z
+2026-07-08,SOXX,5429580000,ETF.com,https://www.etf.com/sections/daily-etf-flows/semiconductor-etfs-roar-back-soxx-pulls-54-billion-single-day,Sparse top-flow article; omitted dates are unknown and not zero,2026-07-09T10:00:00Z
