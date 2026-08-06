@@ -21,7 +21,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -35,6 +35,31 @@ WATCHLIST = [
     "NVDA", "AVGO", "AMD", "MU", "MRVL", "TSM", "ANET", "VRT",
     "LITE", "CIEN", "NET", "DDOG", "ORCL", "META", "NFLX", "SAP",
 ]
+
+COMPANY_ALIASES = {
+    "NVDA": ("nvidia",), "AVGO": ("broadcom",), "AMD": ("amd", "advanced micro devices"),
+    "MU": ("micron",), "MRVL": ("marvell",), "TSM": ("tsmc", "taiwan semiconductor"),
+    "ANET": ("arista",), "VRT": ("vertiv",), "LITE": ("lumentum",),
+    "CIEN": ("ciena",), "NET": ("cloudflare",), "DDOG": ("datadog",),
+    "ORCL": ("oracle",), "META": ("meta",), "NFLX": ("netflix",), "SAP": ("sap",),
+}
+
+NEWS_PUBLISHERS = {
+    "Reuters": 1, "Bloomberg": 2, "The Wall Street Journal": 2,
+    "Barrons.com": 2, "CNBC": 2, "Associated Press": 2,
+    "Yahoo Finance": 3, "MT Newswires": 3,
+    "Business Wire": 3, "PR Newswire": 3, "GlobeNewswire": 3,
+}
+
+NEWS_EVENT_RULES = (
+    ("Earnings / Guidance", 5, ("earnings", "guidance", "outlook", "forecast", "quarterly results", "revenue", "profit")),
+    ("Regulation / Policy", 5, ("export control", "restriction", "restrict", "regulator", "antitrust", "investigation", "probe", "ban on", "sanction")),
+    ("M&A / Capital", 5, ("acquire", "acquisition", "merger", "takeover", "buyback", "offering", "convertible", "dividend cut")),
+    ("Operational Incident", 5, ("outage", "cyberattack", "data breach", "breach", "recall", "lawsuit", "delay")),
+    ("Customer / Contract", 4, ("contract", "customer", "selected by", "wins", "partnership", "supply agreement", "capacity expansion")),
+    ("Product / Strategy", 3, ("launches", "launch", "unveils", "debuts", "introduces", "new ai", "ai coding tool")),
+    ("Management", 3, ("appoints", "resigns", "steps down", "chief executive", "chief financial officer")),
+)
 
 MARKET_SYMBOLS = {
     "QQQ": "QQQ",
@@ -70,6 +95,12 @@ SOURCE_CATALOG = {
         "url": "https://finance.yahoo.com/",
         "tier": "B",
         "use": "Adjusted market price and volume history; cross-check with TradingView/Koyfin when decision-critical.",
+    },
+    "yahoo_news": {
+        "name": "Yahoo Finance news discovery endpoint",
+        "url": "https://finance.yahoo.com/",
+        "tier": "B",
+        "use": "Headline and related-ticker discovery only. Impact interpretation is rules-based and requires source verification before trading.",
     },
     "fred": {
         "name": "Federal Reserve Bank of St. Louis FRED",
@@ -148,6 +179,157 @@ def yahoo_history(symbol: str, range_: str = "1y") -> dict:
         "source_id": "yahoo",
         "fetched_at": datetime.now(timezone.utc).isoformat(),
     }
+
+
+def _headline_mentions_ticker(title: str, ticker: str) -> bool:
+    lowered = title.lower()
+    aliases = COMPANY_ALIASES.get(ticker, ())
+    if any(re.search(rf"\b{re.escape(alias)}\b", lowered) for alias in aliases):
+        return True
+    return bool(re.search(rf"\b{re.escape(ticker.lower())}\b", lowered))
+
+
+def classify_major_news_item(item: dict, query_ticker: str) -> dict | None:
+    """Conservative headline-level screen. It never infers financial magnitude from price action."""
+    title = " ".join((item.get("title") or "").split())
+    publisher = item.get("publisher") or ""
+    link = item.get("link") or ""
+    if not title or not link or publisher not in NEWS_PUBLISHERS:
+        return None
+
+    lowered = title.lower()
+    if any(noise in lowered for noise in ("market size/share", "swot analysis", "what to watch the rest of the week", "analyst blog")):
+        return None
+    category = None
+    impact_score = None
+    for candidate, score, keywords in NEWS_EVENT_RULES:
+        if any(keyword in lowered for keyword in keywords):
+            category, impact_score = candidate, score
+            break
+    if category is None:
+        return None
+
+    related = []
+    for ticker in item.get("relatedTickers") or []:
+        ticker = ticker.upper()
+        if ticker in WATCHLIST and ticker not in related:
+            related.append(ticker)
+    if query_ticker in WATCHLIST and query_ticker not in related and _headline_mentions_ticker(title, query_ticker):
+        related.append(query_ticker)
+    if not related:
+        return None
+
+    direct = [ticker for ticker in related if _headline_mentions_ticker(title, ticker)]
+    # A related-ticker tag alone is not evidence that the story changes the stock.
+    # Keep indirect read-through only for broad policy/regulatory events that hit
+    # at least two names in the explicit watchlist.
+    if not direct and not (category == "Regulation / Policy" and len(related) >= 2):
+        return None
+    directness = "Direct" if direct and len(related) <= 3 else "Sector read-through"
+    positive_words = ("raises", "raised", "beats", "beat ", "wins", "approval", "launches", "unveils", "introduces", "debuts", "expands", "boost")
+    negative_words = ("cuts", "cut ", "misses", "missed", "drops", "drop ", "probe", "investigation", "outage", "breach", "delay", "lawsuit", "restrict", "hurts")
+    positive = any(word in lowered for word in positive_words)
+    negative = any(word in lowered for word in negative_words)
+    if directness != "Direct" or positive == negative:
+        direction = "Mixed"
+    else:
+        direction = "Positive" if positive else "Negative"
+
+    mechanisms = {
+        "Earnings / Guidance": "Forward revenue, margin and EPS expectations may reprice first; verify the reported figures and guidance range.",
+        "Regulation / Policy": "Market access, supply-chain choice and customer capex may change; direction can differ between suppliers and customers.",
+        "M&A / Capital": "Valuation, dilution, balance-sheet capacity and competitive structure may change.",
+        "Operational Incident": "Revenue continuity, remediation cost, customer retention and risk premium are the first variables to monitor.",
+        "Customer / Contract": "Backlog and future revenue may benefit or weaken, but contract size and timing must be confirmed.",
+        "Product / Strategy": "Competitive positioning may change; bookings, adoption and monetization are still required for financial proof.",
+        "Management": "Execution continuity, strategic priorities and governance risk require re-underwriting.",
+    }
+    published_epoch = item.get("providerPublishTime")
+    try:
+        published_at = datetime.fromtimestamp(int(published_epoch), timezone.utc).astimezone(ADELAIDE).isoformat()
+    except (TypeError, ValueError, OSError):
+        published_at = None
+    confidence = "Medium" if directness == "Direct" else "Low"
+    horizon = "Immediate / 1–5 sessions" if impact_score >= 5 else "Near term / 1–12 weeks"
+    return {
+        "id": item.get("uuid") or link,
+        "title": title,
+        "publisher": publisher,
+        "source_url": link,
+        "source_id": "yahoo_news",
+        "published_at": published_at,
+        "published_epoch": int(published_epoch or 0),
+        "category": category,
+        "impact_score": impact_score,
+        "impact_label": {3: "Moderate", 4: "High", 5: "Very High"}[impact_score],
+        "direction": direction,
+        "directness": directness,
+        "confidence": confidence,
+        "horizon": horizon,
+        "affected_tickers": related,
+        "fact": title,
+        "interpretation": mechanisms[category],
+        "evidence_status": "Headline verified; full underlying disclosure not independently parsed.",
+    }
+
+
+def fetch_major_news(report_date: date, hours: int = 36, limit: int = 6) -> tuple[list[dict], list[dict]]:
+    """Fetch and de-duplicate material watchlist headlines for the live daily report."""
+    if report_date != datetime.now(ADELAIDE).date():
+        return [], []
+
+    cutoff = int((datetime.now(timezone.utc) - timedelta(hours=hours)).timestamp())
+
+    def fetch_ticker(ticker: str) -> tuple[str, list[dict]]:
+        query = urlencode({
+            "q": ticker,
+            "quotesCount": 0,
+            "newsCount": 8,
+            "enableFuzzyQuery": "false",
+            "enableNavLinks": "false",
+            "enableResearchReports": "false",
+        })
+        payload = http_json(f"https://query1.finance.yahoo.com/v1/finance/search?{query}", timeout=10)
+        return ticker, payload.get("news") or []
+
+    candidates = []
+    errors = []
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures = {pool.submit(fetch_ticker, ticker): ticker for ticker in WATCHLIST}
+        for future in as_completed(futures):
+            ticker = futures[future]
+            try:
+                query_ticker, items = future.result()
+            except Exception as exc:
+                errors.append({"key": f"NEWS/{ticker}", "error": str(exc)})
+                continue
+            for item in items:
+                if int(item.get("providerPublishTime") or 0) < cutoff:
+                    continue
+                classified = classify_major_news_item(item, query_ticker)
+                if classified:
+                    candidates.append(classified)
+
+    # Exact duplicate first, then keep one best source per category/ticker cluster.
+    unique = {}
+    for item in candidates:
+        key = item["source_url"] or item["id"]
+        current = unique.get(key)
+        if current is None or NEWS_PUBLISHERS[item["publisher"]] < NEWS_PUBLISHERS[current["publisher"]]:
+            unique[key] = item
+    clustered = {}
+    for item in unique.values():
+        key = (item["category"], tuple(sorted(item["affected_tickers"])))
+        current = clustered.get(key)
+        candidate_rank = (NEWS_PUBLISHERS[item["publisher"]], -item["impact_score"], -item["published_epoch"])
+        current_rank = (NEWS_PUBLISHERS[current["publisher"]], -current["impact_score"], -current["published_epoch"]) if current else None
+        if current is None or candidate_rank < current_rank:
+            clustered[key] = item
+    ranked = sorted(
+        clustered.values(),
+        key=lambda item: (-item["impact_score"], NEWS_PUBLISHERS[item["publisher"]], -item["published_epoch"]),
+    )
+    return ranked[:limit], errors
 
 
 def pct_change(rows: list[dict], sessions: int) -> float | None:
@@ -779,11 +961,14 @@ def build(report_date: date | None = None) -> dict:
             "note": "Free dataset subscription requires an AWS account and acceptance of the provider terms. Sparse public events are evidence only and are excluded from rolling sums.",
         }
     flow_available = any(item["status"] == "available" for item in flows.values())
-    with ThreadPoolExecutor(max_workers=2) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
         cboe_future = pool.submit(fetch_cboe_put_call)
         margin_future = pool.submit(fetch_finra_margin)
+        news_future = pool.submit(fetch_major_news, report_date)
         cboe_put_call = cboe_future.result()
         finra_margin = margin_future.result()
+        major_news, news_errors = news_future.result()
+    errors.extend(news_errors)
     market_proxies = build_market_proxies(series)
     top_sector = sectors[0] if sectors else None
     previous = [
@@ -884,7 +1069,14 @@ def build(report_date: date | None = None) -> dict:
                 {"question": "What is the market pricing today?", "answer": f"{regime}; dominant cross-asset narrative: {narrative}."},
                 {"question": "Where is institutional money flowing?", "answer": "Confirmed ETF flow is available." if flow_available else "Not decision-grade: validated institutional flow data is unavailable."},
                 {"question": "Which indicators are leading?", "answer": f"Relative strength and breadth currently rank {top_sector['name'] if top_sector else 'no segment'} first."},
-                {"question": "Which news is lagging?", "answer": "Headlines unsupported by a change in price trend, relative strength, breadth or a confirmed catalyst are treated as lagging information."},
+                {
+                    "question": "Which news is decision-relevant?",
+                    "answer": (
+                        f"{major_news[0]['category']}: {major_news[0]['title']}"
+                        if major_news else
+                        "No source-qualified material headline passed the impact filter; ordinary headlines are treated as lagging information."
+                    ),
+                },
                 {"question": "What is today’s highest-conviction Alpha?", "answer": alpha},
                 {"question": "How would an AI Infrastructure PM adjust?", "answer": "Tilt only toward confirmed leaders, keep non-leaders neutral/underweight, and wait for validated flow before increasing gross exposure."},
             ],
@@ -931,6 +1123,13 @@ def build(report_date: date | None = None) -> dict:
                 },
             },
             "note": "Public market proxies are context, not institutional-flow measurements. Unavailable datasets are never reconstructed from price or volume.",
+        },
+        "major_news": {
+            "items": major_news,
+            "window_hours": 36,
+            "max_items": 6,
+            "method": "Source-whitelisted, headline-level materiality screen. Facts and rules-based equity interpretation are separated; no sentiment or price move is treated as news impact.",
+            "limitations": "Automated impact is a research triage score, not a price forecast. Open the source and confirm company IR/filings before trading.",
         },
         "catalysts": catalysts,
         "pm_actions": pm_actions,

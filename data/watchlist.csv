@@ -1,17 +1,17 @@
 ticker,sector,price,data_date,trend,relative_strength_20d,alpha_score,risk_score,pm_rating,score_coverage
-NVDA,GPU,210.414993,2026-08-04,盤整,5.94,78.1,57.3,Overweight,55
-AVGO,GPU,409.619995,2026-08-04,盤整,9.57,92.2,63.9,Overweight,55
-AMD,GPU,517.61731,2026-08-04,盤整,-0.62,58.8,45.5,Neutral,55
-MU,Memory,879.859985,2026-08-04,下降,-7.14,29.3,56.2,Underweight,55
-MRVL,Networking,213.809998,2026-08-04,盤整,-8.21,36.8,58.1,Neutral,55
-TSM,Platform / Other,414.380005,2026-08-04,盤整,-5.11,35.7,52.6,Neutral,55
-ANET,Networking,188.850006,2026-08-04,上升,12.54,100,69.2,Overweight,55
-VRT,Power,272.589996,2026-08-04,下降,-11.7,7.6,64.4,Underweight,55
-LITE,Optics,823.674988,2026-08-04,盤整,16.94,100,77.1,Overweight,55
-CIEN,Optics,406.269989,2026-08-04,盤整,-3.92,47.9,50.4,Neutral,55
-NET,Software,297.869995,2026-08-04,上升,9.89,97.4,64.4,Overweight,55
-DDOG,Software,283.23999,2026-08-04,上升,9.38,95.5,63.5,Overweight,55
-ORCL,Software,144.2509,2026-08-04,盤整,1.32,70.8,49.0,Overweight,55
-META,Platform / Other,582.934998,2026-08-04,盤整,-6.21,26.1,54.5,Underweight,55
-NFLX,Platform / Other,73.629997,2026-08-04,盤整,-4.25,36.0,51.0,Neutral,55
-SAP,Software,193.960007,2026-08-04,盤整,18.25,100,79.5,Overweight,55
+NVDA,GPU,219.220001,2026-08-05,盤整,6.57,86.8,58.3,Overweight,55
+AVGO,GPU,418.279999,2026-08-05,盤整,6.79,85.8,58.7,Overweight,55
+AMD,GPU,482.049988,2026-08-05,下降,-7.66,31.1,57.3,Underweight,55
+MU,Memory,893.190002,2026-08-05,下降,-6.68,41.2,55.5,Neutral,55
+MRVL,Networking,211.020004,2026-08-05,盤整,-9.73,36.0,61.0,Neutral,55
+TSM,Platform / Other,414.0,2026-08-05,盤整,-6.08,35.7,54.5,Neutral,55
+ANET,Networking,197.309998,2026-08-05,上升,8.16,99.9,61.2,Overweight,55
+VRT,Power,277.940002,2026-08-05,下降,-13.37,18.9,67.6,Underweight,55
+LITE,Optics,826.26001,2026-08-05,盤整,16.03,100,75.3,Overweight,55
+CIEN,Optics,408.829987,2026-08-05,盤整,-8.11,38.0,58.1,Neutral,55
+NET,Software,292.959991,2026-08-05,上升,6.33,80.6,57.9,Overweight,55
+DDOG,Software,283.170013,2026-08-05,上升,7.63,84.6,60.2,Overweight,55
+ORCL,Software,144.389999,2026-08-05,盤整,2.31,76.3,50.6,Overweight,55
+META,Platform / Other,588.77002,2026-08-05,盤整,-3.2,39.0,49.3,Neutral,55
+NFLX,Platform / Other,74.199997,2026-08-05,盤整,-2.66,41.2,48.3,Neutral,55
+SAP,Software,197.330002,2026-08-05,上升,24.53,100,90.6,Overweight,55
