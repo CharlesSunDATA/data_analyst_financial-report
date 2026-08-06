@@ -15,7 +15,7 @@ class DailyBriefContractTest(unittest.TestCase):
         required = {
             "metadata", "executive", "market", "flows", "sectors", "watchlist",
             "divergences", "institutional_money_flow", "catalysts", "pm_actions",
-            "validation", "alpha_timeline", "sources",
+            "validation", "alpha_timeline", "major_news", "sources",
         }
         self.assertTrue(required.issubset(self.data))
         self.assertEqual(16, len(self.data["watchlist"]))
@@ -73,6 +73,17 @@ class DailyBriefContractTest(unittest.TestCase):
         self.assertIn("iShares Semiconductor ETF · SOX代理", app)
         self.assertNotIn("SMH Price ·", app)
         self.assertNotIn("Price vs ETF Flow", app)
+
+    def test_major_news_is_low_noise_and_explicit(self):
+        feed = self.data["major_news"]
+        self.assertLessEqual(len(feed["items"]), 6)
+        self.assertIn("not a price forecast", feed["limitations"])
+        for item in feed["items"]:
+            self.assertIn(item["impact_score"], {3, 4, 5})
+            self.assertIn(item["direction"], {"Positive", "Negative", "Mixed"})
+            self.assertTrue(item["affected_tickers"])
+            self.assertTrue(item["source_url"].startswith("http"))
+            self.assertIn("Headline verified", item["evidence_status"])
 
 
 if __name__ == "__main__":
